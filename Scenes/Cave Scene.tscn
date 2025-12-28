@@ -18,19 +18,19 @@ sky = SubResource("Sky_kln2b")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wk04j"]
-albedo_texture = ExtResource("2_wk04j")
-uv1_scale = Vector3(1, 20, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_3cfdu"]
-material = SubResource("StandardMaterial3D_wk04j")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6e8at"]
 albedo_texture = ExtResource("2_wk04j")
 uv1_scale = Vector3(1, 10, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_py0mi"]
 material = SubResource("StandardMaterial3D_6e8at")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wk04j"]
+albedo_texture = ExtResource("2_wk04j")
+uv1_scale = Vector3(1, 20, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3cfdu"]
+material = SubResource("StandardMaterial3D_wk04j")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2i4q2"]
 albedo_texture = ExtResource("2_wk04j")
@@ -66,11 +66,6 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13)
 
 [node name="Cake Trail" type="Node3D" parent="."]
-
-[node name="21" type="MeshInstance3D" parent="Cake Trail"]
-transform = Transform3D(0.3, 0, 0, 0, 0.5, 0, 0, 0, 6, -0.25, 0.075, 12.974999)
-mesh = SubResource("PlaneMesh_3cfdu")
-skeleton = NodePath("../Cake Trail Building Blocks")
 
 [node name="11" type="MeshInstance3D" parent="Cake Trail"]
 transform = Transform3D(-1.3113416e-08, 0, 2.9999998, 0, 0.5, 0, -0.29999998, 0, -1.3113416e-07, -3, 0.075, 6.825)
@@ -705,12 +700,14 @@ transform = Transform3D(1, 0, -2.3348434e-11, 0, 1, 0, 0, 0, 1, -3.0879211, 0.00
 use_collision = true
 size = Vector3(0.6845703, 2.4071045, 2.8910043)
 
-[node name="Sprite3D11" type="Sprite3D" parent="."]
+[node name="Paw Trail" type="Node3D" parent="."]
+
+[node name="Sprite3D11" type="Sprite3D" parent="Paw Trail"]
 transform = Transform3D(-0.05, -4.371139e-09, -3.821371e-15, 0, -2.1855695e-09, 1, 4.371139e-09, -0.05, -4.371139e-08, 0.75, 0.051, 18.042)
 modulate = Color(0.61745477, 0.61745477, 0.6174547, 1)
 texture = ExtResource("3_6e8at")
 
-[node name="Sprite3D12" type="Sprite3D" parent="."]
+[node name="Sprite3D12" type="Sprite3D" parent="Paw Trail"]
 transform = Transform3D(-0.05, -4.371139e-09, -3.821371e-15, 0, -2.1855695e-09, 1, 4.371139e-09, -0.05, -4.371139e-08, 0.35, 0.051, 18.042)
 modulate = Color(0.61745477, 0.61745477, 0.6174547, 1)
 texture = ExtResource("4_3cfdu")
