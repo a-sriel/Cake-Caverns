@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd2anasvify53"]
+
+[ext_resource type="Script" uid="uid://cfaq21e0cami4" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="PackedScene" uid="uid://c0q01i2up20pf" path="res://fade_transition.tscn" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://dqf3xaxultvws" path="res://Assets/Graphics/splash_screen.png" id="2_fu7sn"]
+
+[sub_resource type="SystemFont" id="SystemFont_fu7sn"]
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_06t4h")
+
+[node name="SplashScreen" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_fu7sn")
+
+[node name="fade_transition" parent="." instance=ExtResource("2_7vrkn")]
+visible = false
+
+[node name="fade_timer" type="Timer" parent="fade_transition"]
+
+[node name="Button_manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="Button_manager"]
+top_level = true
+layout_mode = 0
+offset_left = 1528.0
+offset_top = 639.0
+offset_right = 1574.0
+offset_bottom = 670.0
+scale = Vector2(3.8234158, 3.4783568)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 1, 1)
+theme_override_colors/font_hover_color = Color(6.738305e-07, 0.5916015, 0.60168046, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_fu7sn")
+text = "Start"
+flat = true
+alignment = 0
+
+[node name="Credits" type="Button" parent="Button_manager"]
+top_level = true
+layout_mode = 0
+offset_left = 1528.0
+offset_top = 756.0
+offset_right = 1591.0
+offset_bottom = 787.0
+scale = Vector2(3.8234158, 3.4783568)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 1, 1)
+theme_override_colors/font_hover_color = Color(6.738305e-07, 0.5916015, 0.60168046, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_fu7sn")
+text = "Credits"
+flat = true
+alignment = 0
+
+[node name="Exit" type="Button" parent="Button_manager"]
+layout_mode = 0
+offset_left = 1530.0
+offset_top = 873.0
+offset_right = 1576.0
+offset_bottom = 904.0
+scale = Vector2(3.8234158, 3.4783568)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 1, 1)
+theme_override_colors/font_hover_color = Color(6.738305e-07, 0.5916015, 0.60168046, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_fu7sn")
+text = "Exit"
+flat = true
+alignment = 0
+
+[connection signal="timeout" from="fade_transition/fade_timer" to="." method="_on_fade_timer_timeout"]
+[connection signal="pressed" from="Button_manager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Button_manager/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Button_manager/Exit" to="." method="_on_exit_pressed"]

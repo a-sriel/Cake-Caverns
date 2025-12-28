@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Cake-Caverns"
-run/main_scene="uid://betfqgwta40em"
+run/main_scene="uid://dd2anasvify53"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
