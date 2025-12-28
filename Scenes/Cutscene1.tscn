@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmft8r6iqy8m5"]
+
+[ext_resource type="PackedScene" uid="uid://betfqgwta40em" path="res://Scenes/Overworld Scene.tscn" id="1_dif7x"]
+[ext_resource type="PackedScene" uid="uid://cnb25u4yvhm4b" path="res://Scenes/Entities/Bandito.tscn" id="2_w5wil"]
+
+[node name="Overworld Scene" instance=ExtResource("1_dif7x")]
+
+[node name="Player" parent="." index="3"]
+visible = false
+
+[node name="Cake Trail" parent="." index="6"]
+visible = false
+
+[node name="Cake Master" parent="." index="8" instance=ExtResource("2_w5wil")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.78732, 0.06369352, -4.889788)
+script = null
