@@ -10,11 +10,6 @@ height = 1.625
 
 [node name="Cake Master" type="CharacterBody3D"]
 script = ExtResource("1_fadgh")
-LOOK_SPEED = null
-BASE_SPEED = null
-SPRINT_SPEED = null
-JUMP_SPEED = null
-THROW_FORCE = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0.445, 0.025)
