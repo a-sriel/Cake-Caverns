@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://betfqgwta40em"]
+[gd_scene load_steps=18 format=3 uid="uid://betfqgwta40em"]
 
 [ext_resource type="Script" uid="uid://bxr68sl4epoum" path="res://Scenes/overworld_scene.gd" id="1_vsp5g"]
 [ext_resource type="PackedScene" uid="uid://drdpvnbqqh62w" path="res://Scenes/Entities/Cake Master.tscn" id="2_x04ao"]
 [ext_resource type="Texture2D" uid="uid://cptqo4sa5ohln" path="res://Assets/Graphics/grass.png" id="2_x80r2"]
 [ext_resource type="Texture2D" uid="uid://dnurccw1qyc8q" path="res://Assets/Graphics/banner.png" id="3_7gtkn"]
 [ext_resource type="Texture2D" uid="uid://cqqe0ugnie4us" path="res://icon.svg" id="3_x04ao"]
+[ext_resource type="Texture2D" uid="uid://cb0xbyidjdmc4" path="res://Assets/Graphics/cave_wall1.png" id="5_s8qc7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_idj7w"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -29,6 +30,11 @@ albedo_texture = ExtResource("3_7gtkn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8qc7"]
 albedo_texture = ExtResource("3_7gtkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x07gn"]
+albedo_texture = ExtResource("5_s8qc7")
+metallic = 1.0
+metallic_texture = ExtResource("5_s8qc7")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kln2b"]
 size = Vector3(6.5, 4, 1.75)
@@ -106,6 +112,7 @@ collision_mask = 0
 [node name="CSGBox3D" type="CSGBox3D" parent="Cave/Cave Enterance"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 15.625)
 size = Vector3(25, 5.5, 6.25)
+material = SubResource("StandardMaterial3D_x07gn")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="Cave/Cave Enterance"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8.455423e-08, 15.184375)
@@ -117,7 +124,7 @@ height = 5.86875
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.75)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cave/Enterance Trigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 1.5, -0.375)
+transform = Transform3D(0.9998157, -0.019197444, 0, 0.019197444, 0.9998157, 0, 0, 0, 1, -0.25, 1.5, -0.375)
 shape = SubResource("BoxShape3D_kln2b")
 
 [node name="Cake Trail" type="Node3D" parent="."]
