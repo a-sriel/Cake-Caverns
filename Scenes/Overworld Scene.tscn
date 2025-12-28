@@ -112,7 +112,7 @@ mesh = SubResource("PlaneMesh_7gtkn")
 skeleton = NodePath("../Cake Trail Building Blocks")
 
 [node name="21" type="MeshInstance3D" parent="Cake Trail"]
-transform = Transform3D(1.4999973, -0.002876974, 0.00012383019, 0.0028769763, 1.4999973, -2.9676914e-05, -0.00012377305, 2.9914363e-05, 1.5, -3.4570694e-06, 0, 2.0000002)
+transform = Transform3D(1.4999973, -0.002876974, 0.00012383019, 0.0028769763, 1.4999973, -2.9676914e-05, -0.00012377305, 2.9914363e-05, 1.5, -0.06493753, 0.018836975, 1.9887962)
 mesh = SubResource("PlaneMesh_7gtkn")
 skeleton = NodePath("../Cake Trail Building Blocks")
 
