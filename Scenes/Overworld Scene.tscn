@@ -10,16 +10,21 @@
 [ext_resource type="PackedScene" uid="uid://hd3212swtnsc" path="res://Assets/Objects/Shroom.fbx" id="7_oxmj4"]
 [ext_resource type="AudioStream" uid="uid://b2ywxb0fgni0f" path="res://Assets/Audio/Music/AMB_Morning_Forest_and_River_Rich_Loop.wav" id="10_gif0i"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_idj7w"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x07gn"]
+sky_top_color = Color(1.3957917e-06, 0.4381807, 0.4483828, 1)
+sky_horizon_color = Color(0.98432714, 0.43291813, 0, 1)
+sky_curve = 0.17230472
+ground_bottom_color = Color(0.12941177, 0.28235295, 0.3882353, 1)
+ground_horizon_color = Color(0.13030818, 0.7488422, 0.7148934, 1)
 
 [sub_resource type="Sky" id="Sky_vsp5g"]
-sky_material = SubResource("ProceduralSkyMaterial_idj7w")
+sky_material = SubResource("ProceduralSkyMaterial_x07gn")
 
 [sub_resource type="Environment" id="Environment_rgh2o"]
 background_mode = 2
+background_energy_multiplier = 2.55
 sky = SubResource("Sky_vsp5g")
+ambient_light_color = Color(1, 1, 1, 1)
 tonemap_mode = 2
 glow_enabled = true
 
@@ -485,6 +490,10 @@ transparency = 1.0
 cast_shadow = 0
 use_collision = true
 size = Vector3(1, 0.5918236, 1.2170582)
+
+[node name="CinematicCamera" type="Camera3D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="body_entered" from="Cave/Enterance Trigger" to="." method="_on_enterance_trigger_body_entered"]
 [connection signal="pressed" from="Pause_Menu/ColorRect/Button_manager/Resume" to="." method="_on_resume_pressed"]
