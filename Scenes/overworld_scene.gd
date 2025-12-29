@@ -5,13 +5,14 @@ var cave_path : String = "res://Scenes/Cave Scene.tscn"
 func _ready() -> void:
 	$CinematicCamera.make_current()
 	$Player.hide()
+	$AnimationPlayer.play("IntroCutscene")
 	
-	var anim1 : Animation = $ProtagFerret_Idle/ferret/AnimationPlayer.get_animation("Idle")
+	var anim1 : Animation = $AnimModels/ProtagFerret_Idle/ferret/AnimationPlayer.get_animation("Idle")
 	anim1.loop_mode = (Animation.LOOP_LINEAR)
-	$ProtagFerret_Idle/ferret/AnimationPlayer.play("Idle")
+	$AnimModels/ProtagFerret_Idle/ferret/AnimationPlayer.play("Idle")
 	
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	$Player/Head/Camera3D.make_current()
+	pass
 
 func _on_enterance_trigger_body_entered(body: Node3D) -> void:
 	if body is CakeMaster:

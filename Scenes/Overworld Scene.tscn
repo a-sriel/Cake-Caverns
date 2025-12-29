@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://betfqgwta40em"]
+[gd_scene load_steps=32 format=3 uid="uid://betfqgwta40em"]
 
 [ext_resource type="Script" uid="uid://bxr68sl4epoum" path="res://Scenes/overworld_scene.gd" id="1_vsp5g"]
 [ext_resource type="PackedScene" uid="uid://drdpvnbqqh62w" path="res://Scenes/Entities/Cake Master.tscn" id="2_x04ao"]
@@ -6,10 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://dnurccw1qyc8q" path="res://Assets/Graphics/banner.png" id="3_7gtkn"]
 [ext_resource type="Texture2D" uid="uid://do0eqsdh2b02b" path="res://Assets/Graphics/bakery_sign.png" id="5_cmk5e"]
 [ext_resource type="Texture2D" uid="uid://cb0xbyidjdmc4" path="res://Assets/Graphics/cave_wall1.png" id="5_s8qc7"]
+[ext_resource type="PackedScene" uid="uid://fr01ef2s6gal" path="res://Assets/Objects/Pie.fbx" id="6_5tceu"]
 [ext_resource type="Texture2D" uid="uid://di5lyeq4t26uf" path="res://Assets/Graphics/foot1.png" id="6_s8qc7"]
 [ext_resource type="PackedScene" uid="uid://hd3212swtnsc" path="res://Assets/Objects/Shroom.fbx" id="7_oxmj4"]
 [ext_resource type="PackedScene" uid="uid://qoaxbwrr1jk1" path="res://Assets/Characters/ferret.fbx" id="10_5tceu"]
 [ext_resource type="AudioStream" uid="uid://b2ywxb0fgni0f" path="res://Assets/Audio/Music/AMB_Morning_Forest_and_River_Rich_Loop.wav" id="10_gif0i"]
+[ext_resource type="PackedScene" uid="uid://ljwpwedp2edm" path="res://Assets/Objects/Cake.fbx" id="12_1jeuq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x07gn"]
 sky_top_color = Color(1.3957917e-06, 0.4381807, 0.4483828, 1)
@@ -43,6 +45,11 @@ albedo_texture = ExtResource("3_7gtkn")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8qc7"]
 albedo_texture = ExtResource("3_7gtkn")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbyai"]
+albedo_texture = ExtResource("3_7gtkn")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1jeuq"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x07gn"]
 albedo_texture = ExtResource("5_s8qc7")
 metallic = 1.0
@@ -69,10 +76,135 @@ subpixel_positioning = 0
 
 [sub_resource type="Animation" id="Animation_x07gn"]
 resource_name = "IntroCutscene"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimModels/ProtagFerret_Idle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.3246545, 0.008826137, -5.751459)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimModels/ProtagFerret_Idle:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CinematicCamera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.9077368, 0), Vector3(-0.8226199, 0.85994625, -4.863682), Vector3(-1.5674073, 0.5278137, -5.4297376)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CinematicCamera:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.3313546, 0), Vector3(0, -0.964312, 0), Vector3(0, -1.4802488, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CinematicCamera:fov")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 4, 6.008333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [75.0, 75.0, 20.0]
+}
+
+[sub_resource type="Animation" id="Animation_gif0i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimModels/ProtagFerret_Idle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.3246545, 0.008826137, -5.751459)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimModels/ProtagFerret_Idle:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CinematicCamera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.9077368, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CinematicCamera:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.3313546, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CinematicCamera:fov")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [75.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gif0i"]
 _data = {
-&"IntroCutscene": SubResource("Animation_x07gn")
+&"IntroCutscene": SubResource("Animation_x07gn"),
+&"RESET": SubResource("Animation_gif0i")
 }
 
 [node name="Overworld Scene" type="Node3D"]
@@ -95,6 +227,7 @@ material = SubResource("StandardMaterial3D_cmk5e")
 
 [node name="Player" parent="." instance=ExtResource("2_x04ao")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.4978236, -0.006112814, -5.751459)
+visible = false
 
 [node name="Bakery" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
@@ -143,6 +276,82 @@ material = SubResource("StandardMaterial3D_5tceu")
 [node name="Paint" type="Sprite3D" parent="Bakery/Sign"]
 transform = Transform3D(-2.5601872e-09, 0, -0.1, 0, 0.060785353, 0, 0.058570255, 0, -4.371139e-09, -0.19196618, 0.29613423, -5.704613)
 texture = ExtResource("5_cmk5e")
+
+[node name="CakeStand" type="CSGBox3D" parent="Bakery"]
+transform = Transform3D(0.49497473, 0, 0.49497473, 0, 0.7, 0, -0.49497473, 0, 0.49497473, 0.57898045, 0.16805989, -7.149378)
+material = SubResource("StandardMaterial3D_jbyai")
+
+[node name="Pies" type="Node3D" parent="Bakery"]
+
+[node name="Pie" parent="Bakery/Pies" instance=ExtResource("6_5tceu")]
+transform = Transform3D(0.14836057, 0, 0.08300088, 0, 0.17, 0, -0.08300088, 0, 0.14836057, 0.082151055, 0.6310078, -6.621445)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie"]
+transform = Transform3D(5.882353, 0, 0, 0, 5.882353, 0, 0, 0, 5.882353, 8.101974, -0.6754017, 45.73187)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie/StaticBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.04, 0, 0, 0, 0.35, -1.3764346, 0.12292087, -7.776559)
+shape = SubResource("CylinderShape3D_1jeuq")
+
+[node name="Pie2" parent="Bakery/Pies" instance=ExtResource("6_5tceu")]
+transform = Transform3D(0.118669, 0, -0.121727854, 0, 0.17000002, 0, 0.121727854, 0, 0.118669, 0.082151055, 0.6310078, -4.8939147)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie2"]
+transform = Transform3D(5.882353, 0, 0, 0, 5.882353, 0, 0, 0, 5.882353, 8.101974, -0.6754017, 45.73187)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie2/StaticBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.04, 0, 0, 0, 0.35, -1.3764346, 0.12292087, -7.776559)
+shape = SubResource("CylinderShape3D_1jeuq")
+
+[node name="Pie3" parent="Bakery/Pies" instance=ExtResource("6_5tceu")]
+transform = Transform3D(0.08993526, 0, 0.14426246, 0, 0.17000003, 0, -0.14426246, 0, 0.08993526, 0.082151055, 0.6310078, -5.350468)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie3"]
+transform = Transform3D(5.882353, 0, 0, 0, 5.882353, 0, 0, 0, 5.882353, 8.101974, -0.6754017, 45.73187)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie3/StaticBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.04, 0, 0, 0, 0.35, -1.3764346, 0.12292087, -7.776559)
+shape = SubResource("CylinderShape3D_1jeuq")
+
+[node name="Pie4" parent="Bakery/Pies" instance=ExtResource("6_5tceu")]
+transform = Transform3D(0.08993526, 0, 0.14426246, 0, 0.17000003, 0, -0.14426246, 0, 0.08993526, 0.082151055, 0.70751774, -5.1359935)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie4"]
+transform = Transform3D(5.882353, 0, 0, 0, 5.882353, 0, 0, 0, 5.882353, 8.101974, -0.6754017, 45.73187)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie4/StaticBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.04, 0, 0, 0, 0.35, -1.3764346, 0.12292087, -7.776559)
+shape = SubResource("CylinderShape3D_1jeuq")
+
+[node name="Pie5" parent="Bakery/Pies" instance=ExtResource("6_5tceu")]
+transform = Transform3D(0.08993526, 0, 0.14426246, 0, 0.17000003, 0, -0.14426246, 0, 0.08993526, 0.2825966, 0.08680576, -6.688722)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie5"]
+transform = Transform3D(5.882353, 0, 0, 0, 5.882353, 0, 0, 0, 5.882353, 8.101974, -0.6754017, 45.73187)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie5/StaticBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.04, 0, 0, 0, 0.35, -1.3764346, 0.12292087, -7.776559)
+shape = SubResource("CylinderShape3D_1jeuq")
+
+[node name="Pie6" parent="Bakery/Pies" instance=ExtResource("6_5tceu")]
+transform = Transform3D(0.0067512468, 0, 0.16986592, 0, 0.17000003, 0, -0.16986592, 0, 0.0067512468, 0.28165758, 0.16239086, -6.6383233)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie6"]
+transform = Transform3D(5.882353, 0, 0, 0, 5.882353, 0, 0, 0, 5.882353, 8.101974, -0.6754017, 45.73187)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie6/StaticBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.04, 0, 0, 0, 0.35, -1.3764346, 0.12292087, -7.776559)
+shape = SubResource("CylinderShape3D_1jeuq")
+
+[node name="Pie7" parent="Bakery/Pies" instance=ExtResource("6_5tceu")]
+transform = Transform3D(0.0067512468, 0, 0.16986592, 0, 0.17000003, 0, -0.16986592, 0, 0.0067512468, 0.28986812, 0.23906848, -6.679645)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie7"]
+transform = Transform3D(5.882353, 0, 0, 0, 5.882353, 0, 0, 0, 5.882353, 8.101974, -0.6754017, 45.73187)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie7/StaticBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.04, 0, 0, 0, 0.35, -1.3764346, 0.12292087, -7.776559)
+shape = SubResource("CylinderShape3D_1jeuq")
 
 [node name="Cave" type="Node3D" parent="."]
 
@@ -501,6 +710,7 @@ use_collision = true
 size = Vector3(1, 0.5918236, 1.2170582)
 
 [node name="CinematicCamera" type="Camera3D" parent="."]
+transform = Transform3D(0.2371603, 0, 0.97147053, 0, 1, 0, -0.97147053, 0, 0.2371603, 0, 1.9077368, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -521,6 +731,16 @@ transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09
 [node name="BanditFerret_Walk" type="CharacterBody3D" parent="AnimModels"]
 
 [node name="BanditFerret_Stealing" type="CharacterBody3D" parent="AnimModels"]
+
+[node name="Cake" parent="." instance=ExtResource("12_1jeuq")]
+transform = Transform3D(-0.031987783, 0, 0.26809847, 0, 0.27000004, 0, -0.26809847, 0, -0.031987783, 1.59553, 0.5138418, -7.186804)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cake"]
+transform = Transform3D(5.8823533, 0, 0, 0, 5.8823524, 0, 0, 0, 5.8823533, 8.1019745, -0.6754017, 45.731873)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cake/StaticBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.04, 0, 0, 0, 0.35, -1.3764338, 0.14592986, -7.77656)
+shape = SubResource("CylinderShape3D_1jeuq")
 
 [connection signal="body_entered" from="Cave/Enterance Trigger" to="." method="_on_enterance_trigger_body_entered"]
 [connection signal="pressed" from="Pause_Menu/ColorRect/Button_manager/Resume" to="." method="_on_resume_pressed"]
