@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://hd3212swtnsc" path="res://Assets/Objects/Shroom.fbx" id="7_oxmj4"]
 [ext_resource type="PackedScene" uid="uid://qoaxbwrr1jk1" path="res://Assets/Characters/ferret.fbx" id="10_5tceu"]
 [ext_resource type="AudioStream" uid="uid://b2ywxb0fgni0f" path="res://Assets/Audio/Music/AMB_Morning_Forest_and_River_Rich_Loop.wav" id="10_gif0i"]
-[ext_resource type="PackedScene" uid="uid://22aydyqix5wg" path="res://Scenes/Entities/Ferrets/Bandito.tscn" id="12_0d0em"]
+[ext_resource type="PackedScene" uid="uid://u8fusg8tlq4e" path="res://Scenes/Entities/Ferrets/Bandito.tscn" id="12_0d0em"]
 [ext_resource type="PackedScene" uid="uid://ljwpwedp2edm" path="res://Assets/Objects/Cake.fbx" id="12_1jeuq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x07gn"]
@@ -73,6 +73,70 @@ albedo_texture = ExtResource("2_x80r2")
 
 [sub_resource type="SystemFont" id="SystemFont_x07gn"]
 subpixel_positioning = 0
+
+[sub_resource type="Animation" id="Animation_0d0em"]
+resource_name = "EndCutscene"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CinematicCamera:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [20.0, 50.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CinematicCamera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.240369, 3.4511685, -10.355219), Vector3(1.0234995, 1.1501124, -9.2427435)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CinematicCamera:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.7380115, 3.0695627, 0.048508942), Vector3(-0.21328588, 3.087089, 0.011547812)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimModels/ProtagFerret_Idle:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.99765384, 0.008826137, -7.5776477), Vector3(0.99765384, 0.008826137, -7.5776477)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimModels/ProtagFerret_Idle:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.85238403, 0), Vector3(0, -0.852384, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_x07gn"]
 resource_name = "IntroCutscene"
@@ -321,70 +385,6 @@ tracks/9/keys = {
 "values": [Vector3(14.551923, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_0d0em"]
-resource_name = "EndCutscene"
-length = 12.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CinematicCamera:fov")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [20.0, 50.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CinematicCamera:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(2.240369, 3.4511685, -10.355219), Vector3(1.0234995, 1.1501124, -9.2427435)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CinematicCamera:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.7380115, 3.0695627, 0.048508942), Vector3(-0.21328588, 3.087089, 0.011547812)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AnimModels/ProtagFerret_Idle:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.99765384, 0.008826137, -7.5776477), Vector3(0.99765384, 0.008826137, -7.5776477)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AnimModels/ProtagFerret_Idle:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -0.85238403, 0), Vector3(0, -0.852384, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gif0i"]
 _data = {
 &"EndCutscene": SubResource("Animation_0d0em"),
@@ -558,6 +558,8 @@ material = SubResource("StandardMaterial3D_1jeuq")
 
 [node name="Enterance Trigger" type="Area3D" parent="Cave"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18.125)
+collision_layer = 0
+collision_mask = 8
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cave/Enterance Trigger"]
