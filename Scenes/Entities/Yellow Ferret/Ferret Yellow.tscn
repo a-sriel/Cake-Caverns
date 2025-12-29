@@ -101,7 +101,8 @@ shape = SubResource("SphereShape3D_xmnmm")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 unique_name_in_owner = true
-path_height_offset = 0.5
+path_desired_distance = 0.25
+target_desired_distance = 0.25
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0, 1, 0, 1)

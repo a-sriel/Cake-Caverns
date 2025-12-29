@@ -2,7 +2,7 @@ extends CharacterBody3D
 class_name YellowFerret
 
 @export var mask_health : int = 3
-@export var WALK_SPEED : float = 1
+@export var WALK_SPEED : float = 4
 
 @onready var skeleton : Skeleton3D = $ferret_YellowMask/Armature/Skeleton3D
 @onready var head_bone_id : int = skeleton.find_bone("Head")
@@ -32,13 +32,23 @@ func _process(_delta: float) -> void:
 	
 	if self.get_real_velocity():
 		anim.play("Armature|Walk")
+		print(get_real_velocity())
 	else:
 		anim.play("Idle")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
+	# Navigation
+	if navigation_agent.is_navigation_finished():
+		velocity = Vector3.ZERO
+		move_and_slide()
+		return
+	
 	var destination := navigation_agent.get_next_path_position()
 	var local_destination := destination - self.global_position
 	var direction = local_destination.normalized()
+	
+	if self.global_position != destination:
+		self.look_at(destination)
 	
 	self.velocity = direction * WALK_SPEED
 	move_and_slide()
