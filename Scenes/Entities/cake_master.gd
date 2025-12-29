@@ -9,6 +9,7 @@ class_name CakeMaster
 @export var SPRINT_SPEED : float = 10
 @export var JUMP_SPEED : float = 4.5
 @export var THROW_FORCE: float = 10
+@export var STARTING_PIE_COUNT: int = 25
 
 @onready var head: Node3D = %Head
 @onready var cam: Camera3D = head.get_child(0)
@@ -19,9 +20,11 @@ class_name CakeMaster
 var move_speed : float = 0
 var mouse_captured : bool = false
 var look_rotation : Vector2
+var pie_count : int = STARTING_PIE_COUNT
 
 func _ready() -> void:
 	capture_mouse()
+	update_pie_scale()
 
 #TODO: Optimize this
 func _process(_delta: float) -> void:
@@ -42,7 +45,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotate_look(event.relative) # passes mouse position relative to the previous position (position at the last frame)
 	
 	if Input.is_action_just_pressed("action_fire"):
-		throw_pie()
+		if pie_count > 0:
+			pie_count -= 1
+			throw_pie()
+			update_pie_scale()
+		else:
+			#signal that they are out of pies
+			pass
+		
+		if pie_count == 0:
+			pie.visible = false
 
 func _physics_process(delta: float) -> void:
 	
@@ -110,3 +122,7 @@ func take_shove_from(dir:Vector3, force:float) -> void:
 	velocity += dir * force
 	velocity.y = 3
 	move_and_slide()
+
+func update_pie_scale() -> void:
+	var pie_scale = pie_count * .04
+	pie.scale = Vector3(pie_scale, pie_scale, pie_scale)

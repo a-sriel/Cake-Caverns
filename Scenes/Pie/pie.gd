@@ -15,6 +15,7 @@ func throw(dir:Vector3, force:float) -> void:
 	get_tree().current_scene.add_child(clone)
 	
 	# Collisions
+	clone.scale = Vector3.ONE
 	clone.global_position = self.global_position
 	clone.set_collision_mask_value(1, true) # pie will scan for walls
 	clone.set_collision_mask_value(2, true) # pie will scan for enemies
