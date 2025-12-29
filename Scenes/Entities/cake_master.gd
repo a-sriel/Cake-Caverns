@@ -28,7 +28,7 @@ func _process(_delta: float) -> void:
 	if self.get_real_velocity():
 		anim.play("Armature|Walk")
 	else:
-		anim.play("Armature|_TPose")
+		anim.play("Idle")
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing

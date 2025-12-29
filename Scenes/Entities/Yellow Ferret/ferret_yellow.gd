@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name YellowFerret
 
 @export var mask_health : int = 3
+@export var WALK_SPEED : float = 1
 
 @onready var skeleton : Skeleton3D = $ferret_YellowMask/Armature/Skeleton3D
 @onready var head_bone_id : int = skeleton.find_bone("Head")
@@ -12,6 +13,7 @@ class_name YellowFerret
 @onready var mask_hurtbox: RigidBody3D = %"Mask Hurtbox"
 @onready var head_hurtbox: StaticBody3D = %"Head Hurtbox"
 @onready var mask_mesh: MeshInstance3D = $ferret_YellowMask/Armature/Skeleton3D/Mask
+@onready var navigation_agent: NavigationAgent3D = %NavigationAgent3D
 
 
 var mask_fallen : bool = false
@@ -27,6 +29,19 @@ func _process(_delta: float) -> void:
 		var mask_end_pos : Vector3 = skeleton.get_bone_global_pose(mask_bone_end_id).origin
 		mask_hurtbox.global_position = skeleton.to_global((mask_start_pos + mask_end_pos)/2)
 	head_hurtbox.global_position = skeleton.to_global(skeleton.get_bone_global_pose(head_bone_id).origin)
+	
+	if self.get_real_velocity():
+		anim.play("Armature|Walk")
+	else:
+		anim.play("Idle")
+
+func _physics_process(delta: float) -> void:
+	var destination := navigation_agent.get_next_path_position()
+	var local_destination := destination - self.global_position
+	var direction = local_destination.normalized()
+	
+	self.velocity = direction * WALK_SPEED
+	move_and_slide()
 
 func take_damage() -> void:
 	if mask_fallen:
@@ -59,4 +74,8 @@ func take_damage() -> void:
 		mask_hurtbox.freeze = false
 		
 		mask_fallen = true
-		
+
+
+func _on_celebrate_zone_body_entered(body: Node3D) -> void:
+	if body is CakeMaster:
+		navigation_agent.set_target_position(body.global_position)

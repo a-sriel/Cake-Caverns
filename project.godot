@@ -70,6 +70,7 @@ sprint={
 3d_physics/layer_1="World"
 3d_physics/layer_2="Enemies"
 3d_physics/layer_3="Hurtboxes"
+3d_physics/layer_4="CakeMaster"
 
 [physics]
 
