@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://desfra8sypdg2"]
+[gd_scene load_steps=25 format=3 uid="uid://desfra8sypdg2"]
 
 [ext_resource type="Script" uid="uid://cdw3owg6apqrp" path="res://Scenes/arena_scene.gd" id="1_6udvb"]
 [ext_resource type="PackedScene" uid="uid://drdpvnbqqh62w" path="res://Scenes/Entities/Cake Master.tscn" id="2_gs72q"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cfvls1g6ifaa2" path="res://Scenes/Pie/Pie_Refiller.tscn" id="10_32763"]
 [ext_resource type="PackedScene" uid="uid://u8fusg8tlq4e" path="res://Scenes/Entities/Ferrets/Bandito.tscn" id="10_hw1a1"]
 [ext_resource type="PackedScene" uid="uid://dfjq6vfedjch3" path="res://Assets/Objects/Torch.fbx" id="11_hw1a1"]
+[ext_resource type="PackedScene" uid="uid://dgu3yqbwbpdtx" path="res://Scenes/Pie/Cake.tscn" id="15_7nika"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wk04j"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -389,7 +390,16 @@ material = SubResource("StandardMaterial3D_hw1a1")
 [node name="Enemy Spawn" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.056924462, 18)
 
+[node name="Cake" parent="." instance=ExtResource("15_7nika")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 6.3, 10)
+
+[node name="Area3D" parent="Cake" index="3"]
+collision_mask = 8
+
 [connection signal="pressed" from="Pause_Menu/ColorRect/Button_manager/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Pause_Menu/ColorRect/Button_manager/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Pause_Menu/ColorRect/Button_manager/Close" to="." method="_on_close_pressed"]
 [connection signal="boss_took_damage" from="Bandito" to="." method="_on_bandito_boss_took_damage"]
+[connection signal="spawn_the_cake" from="Bandito" to="." method="_on_bandito_spawn_the_cake"]
+
+[editable path="Cake"]

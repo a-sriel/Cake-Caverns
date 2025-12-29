@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://22aydyqix5wg"]
+[gd_scene load_steps=11 format=3 uid="uid://u8fusg8tlq4e"]
 
 [ext_resource type="Script" uid="uid://cijovywqo4vb4" path="res://Scenes/Entities/Ferrets/bandito.gd" id="1_k7xoa"]
 [ext_resource type="PackedScene" uid="uid://bt23fe706ymcp" path="res://Assets/Characters/ferret_Bandito.fbx" id="2_44xr0"]
 [ext_resource type="Texture2D" uid="uid://bb656xbhvgdp3" path="res://Assets/Objects/WarPaint.png" id="3_ohynm"]
+[ext_resource type="PackedScene" uid="uid://dgu3yqbwbpdtx" path="res://Scenes/Pie/Cake.tscn" id="4_k7xoa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3o06v"]
 radius = 0.25
@@ -39,22 +40,23 @@ bones/0/rotation = Quaternion(0.004963114, -0.7070896, -0.004963208, 0.7070891)
 bones/1/rotation = Quaternion(-0.0477637, 0.0025912914, -0.38492122, 0.92170906)
 bones/2/rotation = Quaternion(0.05684322, 0.018254308, -0.14500175, 0.9876285)
 bones/3/rotation = Quaternion(0.025353624, -0.004159394, -0.009337678, 0.99962634)
-bones/4/rotation = Quaternion(-0.040673237, -0.0035948507, -0.22374272, 0.9737927)
+bones/4/rotation = Quaternion(-0.03985203, 0.0009361623, -0.05539718, 0.9976684)
 bones/7/rotation = Quaternion(-0.019265564, -0.23282744, 0.775884, 0.5860242)
-bones/8/rotation = Quaternion(0.05109109, 0.67635447, 0.15352607, 0.7185848)
+bones/8/rotation = Quaternion(-0.16914484, -0.044012584, -0.57721984, 0.79766554)
 bones/10/rotation = Quaternion(0.7751574, -0.564964, -0.18274705, 0.21575513)
-bones/11/rotation = Quaternion(0.10820295, -0.62583834, -0.20351408, 0.7451178)
-bones/13/rotation = Quaternion(0.7070896, 0.00496316, 0.70708925, -0.004963163)
+bones/11/rotation = Quaternion(-0.27029228, 0.30378944, 0.6667925, 0.6245333)
+bones/13/rotation = Quaternion(0.6832677, 0.14238535, 0.69208, -0.18411116)
 bones/14/rotation = Quaternion(0.14654046, -0.050112706, 0.08393238, 0.9843627)
-bones/15/rotation = Quaternion(-0.19712703, -8.5706894e-08, 9.3997585e-08, 0.980378)
+bones/15/rotation = Quaternion(-0.16922122, -0.013402896, -0.041087724, 0.9846301)
 bones/18/rotation = Quaternion(0.061177492, 0.83577114, -0.17071709, -0.5182661)
 bones/21/rotation = Quaternion(-0.061176866, 0.8357711, -0.17071763, 0.51826596)
-bones/25/position = Vector3(0.010832394, -0.0022856537, 0.013242653)
-bones/25/rotation = Quaternion(-0.70710474, 0.0016464272, 0.7071051, -0.0016088587)
+bones/25/position = Vector3(0.017714756, 0.04297057, 0.043076493)
+bones/25/rotation = Quaternion(-0.4639864, -0.051468067, 0.8812499, -0.07393442)
 bones/27/position = Vector3(0.009534964, -0.04289753, 0.009959646)
 bones/27/rotation = Quaternion(-0.7071044, 0.0016462388, 0.70710546, -0.0016088587)
 bones/33/position = Vector3(-0.003652259, 0.016794838, 0.02291234)
-bones/35/position = Vector3(-0.010832394, -0.0022856537, 0.0132426545)
+bones/35/position = Vector3(-0.0016464461, 0.039712608, 0.052754927)
+bones/35/rotation = Quaternion(0.8812496, 0.07393442, 0.4639869, -0.051468138)
 bones/37/position = Vector3(-0.009534964, -0.04289753, 0.009959646)
 
 [node name="Mask" parent="ferret_Bandito/Armature/Skeleton3D" index="1"]
@@ -107,9 +109,16 @@ debug_path_custom_color = Color(0, 1, 0, 1)
 [node name="Damage Phase Timer" type="Timer" parent="."]
 wait_time = 3.0
 
+[node name="Cake" parent="." instance=ExtResource("4_k7xoa")]
+transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 0, 0.5, 0.8)
+
+[node name="Area3D" parent="Cake" index="3"]
+monitoring = false
+
 [connection signal="body_entered" from="Chase Zone" to="." method="_on_chase_zone_body_entered"]
 [connection signal="body_entered" from="Celebrate Zone" to="." method="_on_celebrate_zone_body_entered"]
 [connection signal="body_exited" from="Celebrate Zone" to="." method="_on_celebrate_zone_body_exited"]
 [connection signal="timeout" from="Damage Phase Timer" to="." method="_on_damage_phase_timer_timeout"]
 
 [editable path="ferret_Bandito"]
+[editable path="Cake"]

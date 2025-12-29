@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name Bandito
 
 signal boss_took_damage()
+signal spawn_the_cake(position:Vector3)
 
 @export var face_health : int = 15
 @export var MAX_MASK_HEALTH : int = 5
@@ -21,6 +22,7 @@ signal boss_took_damage()
 @onready var celebrate_zone: Area3D = %"Celebrate Zone"
 @onready var chase_zone: Area3D = %"Chase Zone"
 @onready var damage_phase_timer: Timer = $"Damage Phase Timer"
+@onready var cake: Node3D = $Cake
 
 
 var mask_fallen : bool = false
@@ -70,7 +72,7 @@ func take_damage() -> void:
 		boss_took_damage.emit()
 		
 		if face_health <= 0:
-			die()
+			setup_dying()
 		return
 	
 	mask_health -= 1
@@ -100,8 +102,7 @@ func _on_celebrate_zone_body_entered(body: Node3D) -> void:
 		if celebrate_zone.overlaps_body(body):
 			_on_celebrate_zone_body_entered(body)
 
-func die() -> void:
-	print("dying...")
+func setup_dying() -> void:
 	# Stop moving
 	set_physics_process(false)
 	set_process(false)
@@ -111,7 +112,7 @@ func die() -> void:
 	# Fade away
 	var tween = get_tree().create_tween()
 	tween.tween_property($ferret_Bandito/Armature/Skeleton3D/Character, "transparency", 1.0, 5.0)
-	tween.tween_callback(self.queue_free)
+	tween.tween_callback(drop_cake_then_die)
 
 func mask_falls() -> void:
 	print("starting damage timer")
@@ -161,3 +162,7 @@ func mask_returns() -> void:
 func _on_damage_phase_timer_timeout() -> void:
 	print("returning mask")
 	mask_returns()
+
+func drop_cake_then_die() -> void:
+	spawn_the_cake.emit(self.global_position)
+	self.queue_free()

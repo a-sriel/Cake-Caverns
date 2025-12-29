@@ -3,6 +3,8 @@ extends Node3D
 @export var ferret_red : PackedScene
 @export var ferret_blue : PackedScene
 @export var ferret_yellow : PackedScene
+@onready var cake: Cake = $Cake
+@onready var bandito: Bandito = $Bandito
 
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -39,3 +41,6 @@ func _on_bandito_boss_took_damage() -> void:
 	rand_ferret.get_child(4).get_child(0).shape.radius *= 3
 	self.add_child(rand_ferret)
 	
+
+func _on_bandito_spawn_the_cake(pos:Vector3) -> void:
+	cake.global_position = pos
