@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://desfra8sypdg2"]
+[gd_scene load_steps=17 format=3 uid="uid://desfra8sypdg2"]
 
 [ext_resource type="Script" uid="uid://cdw3owg6apqrp" path="res://Scenes/arena_scene.gd" id="1_6udvb"]
 [ext_resource type="PackedScene" uid="uid://drdpvnbqqh62w" path="res://Scenes/Entities/Cake Master.tscn" id="2_gs72q"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://6jnny6fm4281" path="res://Assets/Objects/Crystal_Green.fbx" id="5_3ke27"]
 [ext_resource type="PackedScene" uid="uid://su4aj4l8x1ai" path="res://Assets/Objects/Crystal_Blue.fbx" id="6_6gcys"]
 [ext_resource type="PackedScene" uid="uid://hd3212swtnsc" path="res://Assets/Objects/Shroom.fbx" id="7_3ke27"]
-[ext_resource type="PackedScene" uid="uid://b0x346a5hwjru" path="res://Scenes/Entities/Ferrets/Ferret Yellow.tscn" id="8_twcri"]
 [ext_resource type="AudioStream" uid="uid://t8ut8sfpogau" path="res://Assets/Audio/Music/MUSIC_Western_AcousticGuitars1_110BPM_Loop.wav" id="9_6udvb"]
 [ext_resource type="PackedScene" uid="uid://cfvls1g6ifaa2" path="res://Scenes/Pie/Pie_Refiller.tscn" id="10_32763"]
 
@@ -150,9 +149,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -9.406624, -0.17624308,
 [node name="Shroom3" parent="Shrooms" instance=ExtResource("7_3ke27")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.219376, -0.17624308, 16.345497)
 
-[node name="Ferret Yellow" parent="." instance=ExtResource("8_twcri")]
-transform = Transform3D(-0.8660254, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, -0.8660254, 0, 0, 14.1)
-
 [node name="BGM" type="Node3D" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BGM"]
@@ -229,9 +225,37 @@ text = "Exit
 flat = true
 alignment = 0
 
-[node name="Pie Refiller" parent="." instance=ExtResource("10_32763")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3, 0, 15.5)
+[node name="Pie Refillers" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.099999, 0, 13.5)
+
+[node name="Pie Refiller" parent="Pie Refillers" instance=ExtResource("10_32763")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8999996, 0, 1.1999998)
 mass = 20.0
+in_boss_arena = true
+
+[node name="Pie Refiller2" parent="Pie Refillers" instance=ExtResource("10_32763")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 3)
+mass = 20.0
+in_boss_arena = true
+
+[node name="Pie Refiller3" parent="Pie Refillers" instance=ExtResource("10_32763")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1, 0, -2.8000002)
+mass = 20.0
+in_boss_arena = true
+
+[node name="Pie Refiller4" parent="Pie Refillers" instance=ExtResource("10_32763")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.400002, 0, -8.6)
+mass = 20.0
+in_boss_arena = true
+
+[node name="Pie Refiller5" parent="Pie Refillers" instance=ExtResource("10_32763")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6999998, 0, -8.6)
+mass = 20.0
+in_boss_arena = true
+
+[node name="Pie Refiller6" parent="Pie Refillers" instance=ExtResource("10_32763")]
+mass = 20.0
+in_boss_arena = true
 
 [connection signal="pressed" from="Pause_Menu/ColorRect/Button_manager/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Pause_Menu/ColorRect/Button_manager/Menu" to="." method="_on_menu_pressed"]
