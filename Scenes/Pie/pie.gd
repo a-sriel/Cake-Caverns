@@ -18,6 +18,7 @@ func throw(dir:Vector3, force:float) -> void:
 	clone.global_position = self.global_position
 	clone.set_collision_mask_value(1, true) # pie will scan for walls
 	clone.set_collision_mask_value(2, true) # pie will scan for enemies
+	clone.set_collision_mask_value(3, true) # pie will scan for hurtboxes
 	clone.contact_monitor = true
 	clone.max_contacts_reported = 1
 	
@@ -31,10 +32,14 @@ func throw(dir:Vector3, force:float) -> void:
 	self.cooldown_timer.start()
 
 # Freeze on any collision
-func _on_body_entered(_body: Node) -> void:
+func _on_body_entered(body: Node) -> void:
 	self.freeze = true
 	set_deferred("set_contact_monitor", false)
 	self.max_contacts_reported = 0
+	self.call_deferred("reparent", body)
+	
+	if body.owner is CharacterBody3D:
+		body.owner.take_damage()
 
 func _on_cooldown_timeout() -> void:
 	can_throw = true

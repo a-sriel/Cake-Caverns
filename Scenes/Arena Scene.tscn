@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://desfra8sypdg2"]
+[gd_scene load_steps=15 format=3 uid="uid://desfra8sypdg2"]
 
 [ext_resource type="Script" uid="uid://b0ci1xuoj5w30" path="res://Scenes/cave_scene.gd" id="1_n8ae3"]
 [ext_resource type="PackedScene" uid="uid://drdpvnbqqh62w" path="res://Scenes/Entities/Cake Master.tscn" id="2_gs72q"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://6jnny6fm4281" path="res://Assets/Objects/Crystal_Green.fbx" id="5_3ke27"]
 [ext_resource type="PackedScene" uid="uid://su4aj4l8x1ai" path="res://Assets/Objects/Crystal_Blue.fbx" id="6_6gcys"]
 [ext_resource type="PackedScene" uid="uid://hd3212swtnsc" path="res://Assets/Objects/Shroom.fbx" id="7_3ke27"]
+[ext_resource type="PackedScene" uid="uid://b0x346a5hwjru" path="res://Scenes/Entities/Yellow Ferret/Ferret Yellow.tscn" id="8_twcri"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wk04j"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -50,17 +51,21 @@ material_override = SubResource("StandardMaterial3D_twcri")
 use_collision = true
 collision_mask = 0
 size = Vector3(26.2, 0.1, 18.4)
+metadata/_edit_lock_ = true
 
 [node name="Ceiling" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30000114, 2.3500001, 9.799999)
+visible = false
 material_override = SubResource("StandardMaterial3D_6udvb")
 use_collision = true
 collision_mask = 0
 size = Vector3(26.2, 0.2, 18.4)
+metadata/_edit_lock_ = true
 
 [node name="Outer Walls" type="CSGCombiner3D" parent="."]
 material_override = SubResource("StandardMaterial3D_32763")
 use_collision = true
+metadata/_edit_lock_ = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Outer Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.875, 19.5)
@@ -84,6 +89,7 @@ operation = 2
 size = Vector3(0.90000004, 2.4, 1)
 
 [node name="Crystals" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Crystal_Green" parent="Crystals" instance=ExtResource("5_3ke27")]
 transform = Transform3D(-0.112076014, 0, -0.9936997, 0, 1, 0, 0.9936997, 0, -0.112076014, -6.115077, 0.16813946, 17.553406)
@@ -128,6 +134,7 @@ transform = Transform3D(-2.3820348, 0, -1.8237075, 0, 3, 0, 1.8237075, 0, -2.382
 transform = Transform3D(0.7216541, 0, -1.8652655, -0.4406273, 1.9433955, -0.17047466, 1.8124743, 0.47245532, 0.7012297, -5.153904, -0.0007866621, 10.431176)
 
 [node name="Shrooms" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Shroom" parent="Shrooms" instance=ExtResource("7_3ke27")]
 transform = Transform3D(0.33903494, 0, -0.36749873, 0, 0.5, 0, 0.36749873, 0, 0.33903494, 9.241935, -0.17624308, 4.8826804)
@@ -137,3 +144,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -9.406624, -0.17624308,
 
 [node name="Shroom3" parent="Shrooms" instance=ExtResource("7_3ke27")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.219376, -0.17624308, 16.345497)
+
+[node name="Ferret Yellow" parent="." instance=ExtResource("8_twcri")]
+transform = Transform3D(-0.8660254, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, -0.8660254, 0, 0, 14.1)
