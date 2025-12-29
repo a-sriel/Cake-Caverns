@@ -1,0 +1,130 @@
+[gd_scene load_steps=10 format=3 uid="uid://bnn5xdy5ox8rw"]
+
+[ext_resource type="Script" uid="uid://b6dwhy2a71yof" path="res://Scenes/Entities/Ferrets/ferret_red.gd" id="1_2b0ja"]
+[ext_resource type="PackedScene" uid="uid://bqm8ro5lcwff5" path="res://Assets/Characters/ferret_YellowMask.fbx" id="2_58b30"]
+[ext_resource type="Texture2D" uid="uid://hcrp6d6yx7mn" path="res://Assets/Objects/RedPaint.png" id="3_58b30"]
+[ext_resource type="PackedScene" uid="uid://b70d2vp0a2nqr" path="res://Scenes/Hurtbox.tscn" id="4_hk21q"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3o06v"]
+radius = 0.25
+height = 1.625
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q6phc"]
+albedo_texture = ExtResource("3_58b30")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3sybv"]
+radius = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xmnmm"]
+radius = 10.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3sybv"]
+height = 1.0
+radius = 0.2
+
+[node name="Ferret Red" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_2b0ja")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0.445, 0.025)
+shape = SubResource("CapsuleShape3D_3o06v")
+
+[node name="ferret_RedMask" parent="." instance=ExtResource("2_58b30")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.1)
+
+[node name="Skeleton3D" parent="ferret_RedMask/Armature" index="0"]
+bones/1/position = Vector3(-3.2478822e-10, 0.024531087, 1.4516516e-15)
+bones/1/rotation = Quaternion(-0.0477637, 0.0025912914, -0.38492122, 0.92170906)
+bones/1/scale = Vector3(0.99999994, 1, 0.99999994)
+bones/2/position = Vector3(9.400588e-09, 0.019206602, -3.7113e-10)
+bones/2/rotation = Quaternion(0.05684322, 0.018254308, -0.14500175, 0.9876285)
+bones/2/scale = Vector3(0.99999994, 1, 0.9999999)
+bones/3/position = Vector3(3.3147624e-10, 0.02877383, 7.809706e-10)
+bones/3/rotation = Quaternion(0.025353624, -0.004159394, -0.009337678, 0.99962634)
+bones/3/scale = Vector3(1.0000001, 0.9999999, 0.99999994)
+bones/4/position = Vector3(-1.1726133e-09, 0.01069879, -9.932107e-11)
+bones/4/rotation = Quaternion(-0.040673237, -0.0035948507, -0.22374272, 0.9737927)
+bones/4/scale = Vector3(0.9999999, 1, 1)
+bones/5/position = Vector3(-0.01916894, 0.0033376282, 3.8899543e-05)
+bones/5/rotation = Quaternion(-0.002348944, 0.00029190962, -0.11515138, 0.99334514)
+bones/5/scale = Vector3(1, 0.9999999, 1)
+bones/7/position = Vector3(9.400588e-09, 0.019206602, -3.7113e-10)
+bones/7/rotation = Quaternion(-0.019265564, -0.23282744, 0.775884, 0.5860242)
+bones/7/scale = Vector3(0.99999994, 1, 0.9999999)
+bones/8/position = Vector3(-3.3042877e-09, 0.017895458, 2.311102e-09)
+bones/8/rotation = Quaternion(-0.16914473, -0.04401251, -0.57721984, 0.79766554)
+bones/8/scale = Vector3(1, 0.99999994, 1.0000001)
+bones/10/position = Vector3(9.400588e-09, 0.019206602, -3.7113e-10)
+bones/10/rotation = Quaternion(0.7751574, -0.564964, -0.18274705, 0.21575513)
+bones/10/scale = Vector3(1, 1.0000001, 1.0000001)
+bones/11/position = Vector3(2.6799805e-09, 0.019514082, -3.3491845e-10)
+bones/11/rotation = Quaternion(-0.27029237, 0.3037894, 0.6667925, 0.6245333)
+bones/11/scale = Vector3(0.9999999, 1.0000001, 0.9999998)
+bones/13/position = Vector3(-6.938894e-18, -6.938894e-18, -8.665302e-12)
+bones/13/rotation = Quaternion(0.6832677, 0.14238553, 0.69208, -0.18411124)
+bones/13/scale = Vector3(1.0000001, 1, 0.99999994)
+bones/14/position = Vector3(-8.3822444e-16, 0.022893, -1.2490009e-16)
+bones/14/rotation = Quaternion(0.14654046, -0.050112713, 0.083932385, 0.9843627)
+bones/14/scale = Vector3(1, 1.0000001, 0.99999994)
+bones/15/position = Vector3(1.6292349e-15, 0.027125474, 1.4855531e-09)
+bones/15/rotation = Quaternion(-0.16922122, -0.013402894, -0.041087724, 0.9846301)
+bones/15/scale = Vector3(1, 1.0000001, 1)
+bones/18/position = Vector3(6.235937e-09, 0.019545065, -2.1912119e-09)
+bones/18/rotation = Quaternion(0.061177492, 0.83577114, -0.17071709, -0.5182661)
+bones/18/scale = Vector3(1.0000001, 0.9999997, 1.0000002)
+bones/21/position = Vector3(-8.8363594e-10, 0.019545067, -8.210171e-10)
+bones/21/rotation = Quaternion(-0.061176866, 0.8357711, -0.17071763, 0.51826596)
+bones/21/scale = Vector3(1.0000001, 1.0000001, 1.0000004)
+bones/25/rotation = Quaternion(-0.46398643, -0.051468063, 0.8812499, -0.07393441)
+bones/27/rotation = Quaternion(-0.7071044, 0.0016462388, 0.70710546, -0.0016088587)
+bones/35/rotation = Quaternion(0.8812496, 0.07393442, 0.46398693, -0.05146814)
+
+[node name="Mask" parent="ferret_RedMask/Armature/Skeleton3D" index="1"]
+material_override = SubResource("StandardMaterial3D_q6phc")
+
+[node name="Head Hurtbox" parent="." instance=ExtResource("4_hk21q")]
+unique_name_in_owner = true
+
+[node name="Mask Hurtbox" type="RigidBody3D" parent="."]
+unique_name_in_owner = true
+collision_layer = 4
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mask Hurtbox"]
+shape = SubResource("SphereShape3D_3sybv")
+
+[node name="Chase Zone" type="Area3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chase Zone"]
+shape = SubResource("SphereShape3D_xmnmm")
+
+[node name="Celebrate Zone" type="Area3D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Celebrate Zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.2)
+shape = SubResource("CylinderShape3D_3sybv")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+unique_name_in_owner = true
+path_desired_distance = 0.25
+target_desired_distance = 0.25
+path_height_offset = 0.5
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0, 1, 0, 1)
+
+[connection signal="body_entered" from="Chase Zone" to="." method="_on_chase_zone_body_entered"]
+[connection signal="body_entered" from="Celebrate Zone" to="." method="_on_celebrate_zone_body_entered"]
+[connection signal="body_exited" from="Celebrate Zone" to="." method="_on_celebrate_zone_body_exited"]
+
+[editable path="ferret_RedMask"]

@@ -1,21 +1,22 @@
 extends CharacterBody3D
-class_name YellowFerret
+class_name RedFerret
 
-@export var mask_health : int = 3
-@export var WALK_SPEED : float = 4
-@export var SHOVE_FORCE : float = 5
+@export var mask_health : int = 1
+@export var WALK_SPEED : float = 2
+@export var SHOVE_FORCE : float = 15
 
-@onready var skeleton : Skeleton3D = $ferret_YellowMask/Armature/Skeleton3D
+@onready var skeleton : Skeleton3D = $ferret_RedMask/Armature/Skeleton3D
 @onready var head_bone_id : int = skeleton.find_bone("Head")
 @onready var mask_bone_start_id : int = skeleton.find_bone("Head.001")
 @onready var mask_bone_end_id : int = skeleton.find_bone("Head.001_end")
 
-@onready var anim : AnimationPlayer = $ferret_YellowMask/AnimationPlayer
+@onready var anim : AnimationPlayer = $ferret_RedMask/AnimationPlayer
 @onready var mask_hurtbox: RigidBody3D = %"Mask Hurtbox"
 @onready var head_hurtbox: StaticBody3D = %"Head Hurtbox"
-@onready var mask_mesh: MeshInstance3D = $ferret_YellowMask/Armature/Skeleton3D/Mask
+@onready var mask_mesh: MeshInstance3D = $ferret_RedMask/Armature/Skeleton3D/Mask
 @onready var navigation_agent: NavigationAgent3D = %NavigationAgent3D
 @onready var celebrate_zone: Area3D = %"Celebrate Zone"
+@onready var chase_zone: Area3D = %"Chase Zone"
 
 
 var mask_fallen : bool = false
@@ -62,7 +63,7 @@ func take_damage() -> void:
 	if mask_fallen:
 		# ferret dies
 		var tween = get_tree().create_tween()
-		tween.tween_property($ferret_YellowMask/Armature/Skeleton3D/Character, "transparency", 1.0, 1.0)
+		tween.tween_property($ferret_RedMask/Armature/Skeleton3D/Character, "transparency", 1.0, 1.0)
 		tween.tween_callback(self.queue_free)
 		
 	
@@ -94,6 +95,11 @@ func take_damage() -> void:
 func _on_chase_zone_body_entered(body: Node3D) -> void:
 	if body is CakeMaster:
 		navigation_agent.set_target_position(body.global_position)
+		
+		await get_tree().create_timer(1).timeout
+		
+		if chase_zone.overlaps_body(body):
+			_on_chase_zone_body_entered(body)
 
 func _on_celebrate_zone_body_entered(body: Node3D) -> void:
 	if body is CakeMaster and not anim.current_animation == "Armature|Celebrate":

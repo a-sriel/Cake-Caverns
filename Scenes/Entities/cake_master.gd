@@ -107,7 +107,6 @@ func throw_pie() -> void:
 	pie.throw(forward_dir, THROW_FORCE)
 
 func take_shove_from(dir:Vector3, force:float) -> void:
-	velocity += dir * 25
-	#print(dir * 50)
+	velocity += dir * force
 	velocity.y = 3
 	move_and_slide()
