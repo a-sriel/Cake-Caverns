@@ -1,4 +1,5 @@
 extends Node3D
+class_name Overworld
 
 var cave_path : String = "res://Scenes/Cave Scene.tscn"
 

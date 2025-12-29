@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cay0okan47g3u"]
+
+[ext_resource type="PackedScene" uid="uid://betfqgwta40em" path="res://Scenes/Overworld Scene.tscn" id="1_tq3pf"]
+[ext_resource type="Script" uid="uid://42d43rqi6bwp" path="res://Scenes/ending_scene.gd" id="2_ulnso"]
+[ext_resource type="PackedScene" uid="uid://c0q01i2up20pf" path="res://fade_transition.tscn" id="3_rvv7n"]
+
+[node name="Overworld Scene" instance=ExtResource("1_tq3pf")]
+script = ExtResource("2_ulnso")
+
+[node name="Player" parent="." index="3"]
+script = null
+
+[node name="CinematicCamera" parent="." index="14"]
+transform = Transform3D(0.23716028, 0, 0.9714705, 0, 1, 0, -0.9714705, 0, 0.23716028, 0, 1.9077368, 0)
+
+[node name="fade_transition" parent="." index="18" instance=ExtResource("3_rvv7n")]
+visible = false
+
+[node name="fade_timer" type="Timer" parent="fade_transition" index="1"]
+
+[connection signal="timeout" from="fade_transition/fade_timer" to="." method="_on_fade_timer_timeout"]
+
+[editable path="fade_transition"]
