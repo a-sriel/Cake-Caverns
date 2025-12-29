@@ -99,7 +99,9 @@ func _on_celebrate_zone_body_entered(body: Node3D) -> void:
 	if body is CakeMaster and not anim.current_animation == "Armature|Celebrate":
 		player_inside_celebration = true
 		anim.play("Armature|Celebrate")
-		body.take_shove_from(self.global_position, SHOVE_FORCE)
+		
+		var shove_dir : Vector3 = (body.global_position - self.global_position).normalized()
+		body.take_shove_from(shove_dir, SHOVE_FORCE)
 		
 		await get_tree().create_timer(1.05).timeout
 		

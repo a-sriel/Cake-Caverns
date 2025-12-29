@@ -64,11 +64,19 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backwards")
 	var move_dir := (self.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if move_dir:
-		velocity.x = move_dir.x * move_speed
-		velocity.z = move_dir.z * move_speed
+		if self.is_on_floor():
+			velocity.x = move_dir.x * move_speed
+			velocity.z = move_dir.z * move_speed
+		else:
+			velocity.x = move_toward(velocity.x, move_dir.x * move_speed, move_speed * .05)
+			velocity.z = move_toward(velocity.z, move_dir.z * move_speed, move_speed * .05)
 	else:
-		velocity.x = move_toward(velocity.x, 0, move_speed)
-		velocity.z = move_toward(velocity.z, 0, move_speed)
+		if self.is_on_floor():
+			velocity.x = move_toward(velocity.x, 0, move_speed * .2)
+			velocity.z = move_toward(velocity.z, 0, move_speed * .2)
+		else:
+			velocity.x = move_toward(velocity.x, move_dir.x * move_speed, move_speed * .05)
+			velocity.z = move_toward(velocity.z, move_dir.z * move_speed, move_speed * .05)
 	
 	self.move_and_slide()
 
@@ -98,7 +106,8 @@ func throw_pie() -> void:
 	forward_dir.y += .5
 	pie.throw(forward_dir, THROW_FORCE)
 
-func take_shove_from(from_pos:Vector3, force:float) -> void:
-	velocity = (self.global_position - from_pos) * force
+func take_shove_from(dir:Vector3, force:float) -> void:
+	velocity += dir * 25
+	#print(dir * 50)
 	velocity.y = 3
 	move_and_slide()
