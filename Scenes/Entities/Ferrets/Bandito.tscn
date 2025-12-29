@@ -16,9 +16,8 @@ radius = 0.3
 [sub_resource type="SphereShape3D" id="SphereShape3D_xmnmm"]
 radius = 20.0
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_3sybv"]
-height = 1.0
-radius = 0.3
+[sub_resource type="BoxShape3D" id="BoxShape3D_44xr0"]
+size = Vector3(0.6, 1.2, 2.1000001)
 
 [node name="Bandito" type="CharacterBody3D"]
 collision_layer = 2
@@ -30,6 +29,29 @@ shape = SubResource("CapsuleShape3D_3o06v")
 
 [node name="ferret_Bandito" parent="." instance=ExtResource("2_44xr0")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+
+[node name="Skeleton3D" parent="ferret_Bandito/Armature" index="0"]
+bones/0/rotation = Quaternion(0.004963114, -0.7070896, -0.004963208, 0.7070891)
+bones/1/rotation = Quaternion(-0.0477637, 0.0025912914, -0.38492122, 0.92170906)
+bones/2/rotation = Quaternion(0.05684322, 0.018254308, -0.14500175, 0.9876285)
+bones/3/rotation = Quaternion(0.025353624, -0.004159394, -0.009337678, 0.99962634)
+bones/4/rotation = Quaternion(-0.040673237, -0.0035948507, -0.22374272, 0.9737927)
+bones/7/rotation = Quaternion(-0.019265564, -0.23282744, 0.775884, 0.5860242)
+bones/8/rotation = Quaternion(0.05109109, 0.67635447, 0.15352607, 0.7185848)
+bones/10/rotation = Quaternion(0.7751574, -0.564964, -0.18274705, 0.21575513)
+bones/11/rotation = Quaternion(0.10820295, -0.62583834, -0.20351408, 0.7451178)
+bones/13/rotation = Quaternion(0.7070896, 0.00496316, 0.70708925, -0.004963163)
+bones/14/rotation = Quaternion(0.14654046, -0.050112706, 0.08393238, 0.9843627)
+bones/15/rotation = Quaternion(-0.19712703, -8.5706894e-08, 9.3997585e-08, 0.980378)
+bones/18/rotation = Quaternion(0.061177492, 0.83577114, -0.17071709, -0.5182661)
+bones/21/rotation = Quaternion(-0.061176866, 0.8357711, -0.17071763, 0.51826596)
+bones/25/position = Vector3(0.010832394, -0.0022856537, 0.013242653)
+bones/25/rotation = Quaternion(-0.70710474, 0.0016464272, 0.7071051, -0.0016088587)
+bones/27/position = Vector3(0.009534964, -0.04289753, 0.009959646)
+bones/27/rotation = Quaternion(-0.7071044, 0.0016462388, 0.70710546, -0.0016088587)
+bones/33/position = Vector3(-0.003652259, 0.016794838, 0.02291234)
+bones/35/position = Vector3(-0.010832394, -0.0022856537, 0.0132426545)
+bones/37/position = Vector3(-0.009534964, -0.04289753, 0.009959646)
 
 [node name="Head Hurtbox" type="StaticBody3D" parent="."]
 unique_name_in_owner = true
@@ -65,22 +87,22 @@ collision_mask = 8
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Celebrate Zone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.3)
-shape = SubResource("CylinderShape3D_3sybv")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1175871e-07, 0.6, 0.15000007)
+shape = SubResource("BoxShape3D_44xr0")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 unique_name_in_owner = true
-path_desired_distance = 0.25
-target_desired_distance = 0.25
 path_height_offset = 0.5
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0, 1, 0, 1)
 
 [node name="Damage Phase Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 
 [connection signal="body_entered" from="Chase Zone" to="." method="_on_chase_zone_body_entered"]
 [connection signal="body_entered" from="Celebrate Zone" to="." method="_on_celebrate_zone_body_entered"]
 [connection signal="body_exited" from="Celebrate Zone" to="." method="_on_celebrate_zone_body_exited"]
 [connection signal="timeout" from="Damage Phase Timer" to="." method="_on_damage_phase_timer_timeout"]
+
+[editable path="ferret_Bandito"]

@@ -50,14 +50,15 @@ func _physics_process(_delta: float) -> void:
 		return
 	
 	var destination := navigation_agent.get_next_path_position()
+	destination.y = 0
 	var local_destination := destination - self.global_position
 	var direction = local_destination.normalized()
 	
-	if self.global_position != destination:
-		self.look_at(destination)
-	
 	self.velocity = direction * WALK_SPEED
 	move_and_slide()
+	
+	if self.global_position != destination:
+		self.look_at(destination)
 
 func take_damage() -> void:
 	if mask_fallen:

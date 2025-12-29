@@ -1,5 +1,10 @@
 extends Node3D
 
+@export var ferret_red : PackedScene
+@export var ferret_blue : PackedScene
+@export var ferret_yellow : PackedScene
+
+
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().paused = true
@@ -16,3 +21,21 @@ func _on_menu_pressed() -> void:
 	
 func _on_close_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_bandito_boss_took_damage() -> void:
+	var rand_i : int = randi_range(1, 3)
+	var rand_ferret : Node
+	
+	match rand_i:
+		1:
+			rand_ferret = ferret_red.instantiate()
+		2:
+			rand_ferret = ferret_blue.instantiate()
+		3:
+			rand_ferret = ferret_yellow.instantiate()
+	
+	rand_ferret.global_position = $"Enemy Spawn".global_position
+	rand_ferret.get_child(4).get_child(0).shape.radius *= 3
+	self.add_child(rand_ferret)
+	

@@ -71,13 +71,12 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18.300001)
 
 [node name="Ceiling" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 13.471585, 0, 0, 0, 1, 10, 2.8502579, -32.25)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 13.471585, 0, 0, 0, 1, 10, 4.8709955, -32.25)
 material_override = SubResource("StandardMaterial3D_76d20")
 cast_shadow = 2
 use_collision = true
 collision_mask = 0
-size = Vector3(68, 0.1, 102.5)
+size = Vector3(68, 0.4, 102.5)
 
 [node name="Paw Trail" type="Node3D" parent="."]
 
