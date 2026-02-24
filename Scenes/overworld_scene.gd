@@ -50,7 +50,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_tree().paused = true
 		$Pause_Menu.show()
 	
-	if $AnimationPlayer.current_animation == &"IntroCutscene" and (
+	if $AnimationPlayer.is_playing() and (
 		Input.is_action_just_pressed("action_fire") or 
 		Input.is_action_just_pressed("jump") or
 		Input.is_action_just_pressed("move_backwards") or
@@ -58,7 +58,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.is_action_just_pressed("move_left") or
 		Input.is_action_just_pressed("move_right")):
 		
-		$AnimationPlayer.speed_scale += .5
+		$AnimationPlayer.speed_scale *= 1.25
 	
 func _on_resume_pressed() -> void:
 	$Pause_Menu.hide()

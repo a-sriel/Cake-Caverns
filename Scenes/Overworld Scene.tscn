@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://betfqgwta40em"]
+[gd_scene format=3 uid="uid://betfqgwta40em"]
 
 [ext_resource type="Script" uid="uid://bxr68sl4epoum" path="res://Scenes/overworld_scene.gd" id="1_vsp5g"]
 [ext_resource type="PackedScene" uid="uid://drdpvnbqqh62w" path="res://Scenes/Entities/Cake Master.tscn" id="2_x04ao"]
@@ -392,17 +392,17 @@ _data = {
 &"RESET": SubResource("Animation_gif0i")
 }
 
-[node name="Overworld Scene" type="Node3D"]
+[node name="Overworld Scene" type="Node3D" unique_id=1157579148]
 script = ExtResource("1_vsp5g")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=581224932]
 environment = SubResource("Environment_rgh2o")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=604643470]
 transform = Transform3D(1, 0, 0, 0, -0.4539906, 0.89100647, 0, -0.89100647, -0.4539906, 0, 6.75, 0)
 shadow_enabled = true
 
-[node name="Floor" type="CSGBox3D" parent="."]
+[node name="Floor" type="CSGBox3D" parent="." unique_id=1578970142]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037640035, 0.013693333, 3.2562397)
 material_override = SubResource("StandardMaterial3D_oxmj4")
 use_collision = true
@@ -410,389 +410,389 @@ collision_mask = 0
 size = Vector3(25, 0.1, 31.5)
 material = SubResource("StandardMaterial3D_cmk5e")
 
-[node name="Player" parent="." instance=ExtResource("2_x04ao")]
+[node name="Player" parent="." unique_id=841474667 instance=ExtResource("2_x04ao")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.4978236, -0.006112814, -5.751459)
 visible = false
 
-[node name="Bakery" type="CSGCombiner3D" parent="."]
+[node name="Bakery" type="CSGCombiner3D" parent="." unique_id=1114086439]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 use_collision = true
 collision_mask = 0
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Bakery"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Bakery" unique_id=47650418]
 transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, -0.02717638, 0.5118207, -7.001459)
 size = Vector3(0.25, 1, 0.25)
 material = SubResource("StandardMaterial3D_5tceu")
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="Bakery"]
+[node name="CSGBox3D6" type="CSGBox3D" parent="Bakery" unique_id=1530706882]
 transform = Transform3D(1, 0, 0, 0, 1.7272279, 0, 0, 0, 1, 1.4728234, 0.846244, -4.501459)
 size = Vector3(0.25, 1, 0.25)
 material = SubResource("StandardMaterial3D_5tceu")
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="Bakery"]
+[node name="CSGBox3D8" type="CSGBox3D" parent="Bakery" unique_id=1374182941]
 transform = Transform3D(0.9576468, -0.28794557, 0, 0.28794557, 0.9576468, 0, 0, 0, 1, 0.6379677, 1.498831, -5.75)
 material_override = SubResource("StandardMaterial3D_x80r2")
 size = Vector3(2.064331, 0.05, 2.75)
 material = SubResource("StandardMaterial3D_s8qc7")
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="Bakery"]
+[node name="CSGBox3D7" type="CSGBox3D" parent="Bakery" unique_id=1119710257]
 transform = Transform3D(1, 0, 0, 0, 1.7272279, 0, 0, 0, 1, 1.4728234, 0.846244, -7.001459)
 size = Vector3(0.25, 1, 0.25)
 material = SubResource("StandardMaterial3D_5tceu")
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Bakery"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="Bakery" unique_id=1262474629]
 transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, -0.02717638, 0.5118207, -4.501459)
 size = Vector3(0.25, 1, 0.25)
 material = SubResource("StandardMaterial3D_5tceu")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Bakery"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Bakery" unique_id=339732207]
 transform = Transform3D(2.255, 0, 0, 0, 2.255, 0, 0, 0, 2.255, -0.05008757, -0.23161276, -5.757044)
 size = Vector3(0.125, 0.8, 1)
 material = SubResource("StandardMaterial3D_5tceu")
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Bakery"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="Bakery" unique_id=432551689]
 transform = Transform3D(1.5945256, 1.5945258, 0, -1.5945258, 1.5945256, 0, 0, 0, 2.2550004, -0.58975005, 0.124500036, -5.75)
 operation = 2
 size = Vector3(0.125, 0.8, 1)
 material = SubResource("StandardMaterial3D_5tceu")
 
-[node name="Sign" type="Node3D" parent="Bakery"]
+[node name="Sign" type="Node3D" parent="Bakery" unique_id=2046854252]
 
-[node name="Paint" type="Sprite3D" parent="Bakery/Sign"]
+[node name="Paint" type="Sprite3D" parent="Bakery/Sign" unique_id=2114849147]
 transform = Transform3D(-2.5601872e-09, 0, -0.1, 0, 0.060785353, 0, 0.058570255, 0, -4.371139e-09, -0.19196618, 0.29613423, -5.704613)
 texture = ExtResource("5_cmk5e")
 
-[node name="CakeStand" type="CSGBox3D" parent="Bakery"]
+[node name="CakeStand" type="CSGBox3D" parent="Bakery" unique_id=1536009163]
 transform = Transform3D(0.49497473, 0, 0.49497473, 0, 0.7, 0, -0.49497473, 0, 0.49497473, 0.57898045, 0.16805989, -7.149378)
 material = SubResource("StandardMaterial3D_jbyai")
 
-[node name="Pies" type="Node3D" parent="Bakery"]
+[node name="Pies" type="Node3D" parent="Bakery" unique_id=458807025]
 
-[node name="Pie" parent="Bakery/Pies" instance=ExtResource("6_5tceu")]
+[node name="Pie" parent="Bakery/Pies" unique_id=2075961486 instance=ExtResource("6_5tceu")]
 transform = Transform3D(0.14836057, 0, 0.08300088, 0, 0.17, 0, -0.08300088, 0, 0.14836057, 0.082151055, 0.6310078, -6.621445)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie" unique_id=1680305858]
 transform = Transform3D(5.882353, 0, 0, 0, 5.882353, 0, 0, 0, 5.882353, 8.101974, -0.6754017, 45.73187)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie/StaticBody3D" unique_id=1709234152]
 transform = Transform3D(0.35, 0, 0, 0, 0.04, 0, 0, 0, 0.35, -1.3764346, 0.12292087, -7.776559)
 shape = SubResource("CylinderShape3D_1jeuq")
 
-[node name="Pie2" parent="Bakery/Pies" instance=ExtResource("6_5tceu")]
+[node name="Pie2" parent="Bakery/Pies" unique_id=1817305244 instance=ExtResource("6_5tceu")]
 transform = Transform3D(0.118669, 0, -0.121727854, 0, 0.17000002, 0, 0.121727854, 0, 0.118669, 0.082151055, 0.6310078, -4.8939147)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie2" unique_id=428973219]
 transform = Transform3D(5.882353, 0, 0, 0, 5.882353, 0, 0, 0, 5.882353, 8.101974, -0.6754017, 45.73187)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie2/StaticBody3D" unique_id=800435626]
 transform = Transform3D(0.35, 0, 0, 0, 0.04, 0, 0, 0, 0.35, -1.3764346, 0.12292087, -7.776559)
 shape = SubResource("CylinderShape3D_1jeuq")
 
-[node name="Pie3" parent="Bakery/Pies" instance=ExtResource("6_5tceu")]
+[node name="Pie3" parent="Bakery/Pies" unique_id=760819449 instance=ExtResource("6_5tceu")]
 transform = Transform3D(0.08993526, 0, 0.14426246, 0, 0.17000003, 0, -0.14426246, 0, 0.08993526, 0.082151055, 0.6310078, -5.350468)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie3"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie3" unique_id=1022460168]
 transform = Transform3D(5.882353, 0, 0, 0, 5.882353, 0, 0, 0, 5.882353, 8.101974, -0.6754017, 45.73187)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie3/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie3/StaticBody3D" unique_id=765365342]
 transform = Transform3D(0.35, 0, 0, 0, 0.04, 0, 0, 0, 0.35, -1.3764346, 0.12292087, -7.776559)
 shape = SubResource("CylinderShape3D_1jeuq")
 
-[node name="Pie4" parent="Bakery/Pies" instance=ExtResource("6_5tceu")]
+[node name="Pie4" parent="Bakery/Pies" unique_id=1288278045 instance=ExtResource("6_5tceu")]
 transform = Transform3D(0.08993526, 0, 0.14426246, 0, 0.17000003, 0, -0.14426246, 0, 0.08993526, 0.082151055, 0.70751774, -5.1359935)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie4"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie4" unique_id=2074235273]
 transform = Transform3D(5.882353, 0, 0, 0, 5.882353, 0, 0, 0, 5.882353, 8.101974, -0.6754017, 45.73187)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie4/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie4/StaticBody3D" unique_id=1846294739]
 transform = Transform3D(0.35, 0, 0, 0, 0.04, 0, 0, 0, 0.35, -1.3764346, 0.12292087, -7.776559)
 shape = SubResource("CylinderShape3D_1jeuq")
 
-[node name="Pie5" parent="Bakery/Pies" instance=ExtResource("6_5tceu")]
+[node name="Pie5" parent="Bakery/Pies" unique_id=321231683 instance=ExtResource("6_5tceu")]
 transform = Transform3D(0.08993526, 0, 0.14426246, 0, 0.17000003, 0, -0.14426246, 0, 0.08993526, 0.2825966, 0.08680576, -6.688722)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie5"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie5" unique_id=1179447749]
 transform = Transform3D(5.882353, 0, 0, 0, 5.882353, 0, 0, 0, 5.882353, 8.101974, -0.6754017, 45.73187)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie5/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie5/StaticBody3D" unique_id=1051363860]
 transform = Transform3D(0.35, 0, 0, 0, 0.04, 0, 0, 0, 0.35, -1.3764346, 0.12292087, -7.776559)
 shape = SubResource("CylinderShape3D_1jeuq")
 
-[node name="Pie6" parent="Bakery/Pies" instance=ExtResource("6_5tceu")]
+[node name="Pie6" parent="Bakery/Pies" unique_id=1354731908 instance=ExtResource("6_5tceu")]
 transform = Transform3D(0.0067512468, 0, 0.16986592, 0, 0.17000003, 0, -0.16986592, 0, 0.0067512468, 0.28165758, 0.16239086, -6.6383233)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie6"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie6" unique_id=1388063469]
 transform = Transform3D(5.882353, 0, 0, 0, 5.882353, 0, 0, 0, 5.882353, 8.101974, -0.6754017, 45.73187)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie6/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie6/StaticBody3D" unique_id=1099460037]
 transform = Transform3D(0.35, 0, 0, 0, 0.04, 0, 0, 0, 0.35, -1.3764346, 0.12292087, -7.776559)
 shape = SubResource("CylinderShape3D_1jeuq")
 
-[node name="Pie7" parent="Bakery/Pies" instance=ExtResource("6_5tceu")]
+[node name="Pie7" parent="Bakery/Pies" unique_id=875223932 instance=ExtResource("6_5tceu")]
 transform = Transform3D(0.0067512468, 0, 0.16986592, 0, 0.17000003, 0, -0.16986592, 0, 0.0067512468, 0.28986812, 0.23906848, -6.679645)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie7"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bakery/Pies/Pie7" unique_id=65424775]
 transform = Transform3D(5.882353, 0, 0, 0, 5.882353, 0, 0, 0, 5.882353, 8.101974, -0.6754017, 45.73187)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie7/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bakery/Pies/Pie7/StaticBody3D" unique_id=1298650385]
 transform = Transform3D(0.35, 0, 0, 0, 0.04, 0, 0, 0, 0.35, -1.3764346, 0.12292087, -7.776559)
 shape = SubResource("CylinderShape3D_1jeuq")
 
-[node name="Cave" type="Node3D" parent="."]
+[node name="Cave" type="Node3D" parent="." unique_id=897470729]
 
-[node name="Cave Enterance" type="CSGCombiner3D" parent="Cave"]
+[node name="Cave Enterance" type="CSGCombiner3D" parent="Cave" unique_id=1463070146]
 use_collision = true
 collision_mask = 0
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Cave/Cave Enterance"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Cave/Cave Enterance" unique_id=8536049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7987671, 15.625)
 size = Vector3(25, 4.597534, 6.25)
 material = SubResource("StandardMaterial3D_x07gn")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Cave/Cave Enterance"]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Cave/Cave Enterance" unique_id=1095302264]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8.455423e-08, 15.184375)
 operation = 2
 radius = 3.0
 height = 5.86875
 material = SubResource("StandardMaterial3D_1jeuq")
 
-[node name="Enterance Trigger" type="Area3D" parent="Cave"]
+[node name="Enterance Trigger" type="Area3D" parent="Cave" unique_id=88080411]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18.125)
 collision_layer = 0
 collision_mask = 8
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cave/Enterance Trigger"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cave/Enterance Trigger" unique_id=581137780]
 transform = Transform3D(0.9998157, -0.019197444, 0, 0.019197444, 0.9998157, 0, 0, 0, 1, -0.25, 1.5, -1.375)
 shape = SubResource("BoxShape3D_kln2b")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Cave"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Cave" unique_id=250696810]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.6, -0.375, 1.375, 16.4)
 size = Vector3(9.75, 3.75, 1)
 material = SubResource("StandardMaterial3D_gif0i")
 
-[node name="Cake Trail" type="Node3D" parent="."]
+[node name="Cake Trail" type="Node3D" parent="." unique_id=451602086]
 transform = Transform3D(-0.29999998, 0, -5.2453663e-07, 0, 0.5, 0, 2.6226832e-08, 0, -5.9999995, -0.25, 0.075, 12.974999)
 
-[node name="Sprite3D2" type="Sprite3D" parent="Cake Trail"]
+[node name="Sprite3D2" type="Sprite3D" parent="Cake Trail" unique_id=811015178]
 transform = Transform3D(0.2, 0, 3.8213654e-15, -7.642742e-16, 4.3711387e-10, 1, 0, -0.010000001, 4.3711392e-08, 1.6666615, 0, 2.916667)
 texture = ExtResource("6_s8qc7")
 
-[node name="Sprite3D3" type="Sprite3D" parent="Cake Trail"]
+[node name="Sprite3D3" type="Sprite3D" parent="Cake Trail" unique_id=184321157]
 transform = Transform3D(0.2, 1.7763568e-15, 3.8213586e-15, -7.642742e-16, 4.3711387e-10, 1, 0, -0.010000001, 4.3711395e-08, -0.8333384, 0, 2.7500002)
 texture = ExtResource("6_s8qc7")
 
-[node name="Sprite3D4" type="Sprite3D" parent="Cake Trail"]
+[node name="Sprite3D4" type="Sprite3D" parent="Cake Trail" unique_id=1529267334]
 transform = Transform3D(0.2, 1.7763568e-15, 3.8213586e-15, -7.642742e-16, 4.3711387e-10, 1, 0, -0.010000001, 4.3711395e-08, 1.6666622, 0, 2.5833335)
 texture = ExtResource("6_s8qc7")
 
-[node name="Sprite3D5" type="Sprite3D" parent="Cake Trail"]
+[node name="Sprite3D5" type="Sprite3D" parent="Cake Trail" unique_id=1414773260]
 transform = Transform3D(0.2, 1.7763568e-15, 3.8213586e-15, -7.642742e-16, 4.3711387e-10, 1, 0, -0.010000001, 4.3711395e-08, -4.172325e-06, 0, 2.416667)
 texture = ExtResource("6_s8qc7")
 
-[node name="Sprite3D6" type="Sprite3D" parent="Cake Trail"]
+[node name="Sprite3D6" type="Sprite3D" parent="Cake Trail" unique_id=452572350]
 transform = Transform3D(0.2, 1.7763568e-15, 3.8213586e-15, -7.642742e-16, 4.3711387e-10, 1, 0, -0.010000001, 4.3711395e-08, 0.8333295, 0, 2.2500005)
 texture = ExtResource("6_s8qc7")
 
-[node name="Sprite3D7" type="Sprite3D" parent="Cake Trail"]
+[node name="Sprite3D7" type="Sprite3D" parent="Cake Trail" unique_id=1162483326]
 transform = Transform3D(0.2, 1.7763568e-15, 3.8213586e-15, -7.642742e-16, 4.3711387e-10, 1, 0, -0.010000001, 4.3711395e-08, -0.83333683, 0, 2.0000005)
 texture = ExtResource("6_s8qc7")
 
-[node name="Sprite3D8" type="Sprite3D" parent="Cake Trail"]
+[node name="Sprite3D8" type="Sprite3D" parent="Cake Trail" unique_id=549728680]
 transform = Transform3D(0.2, 1.7763568e-15, 3.8213586e-15, -7.642742e-16, 4.3711387e-10, 1, 0, -0.010000001, 4.3711395e-08, 0.83333033, 0, 1.7500005)
 texture = ExtResource("6_s8qc7")
 
-[node name="Sprite3D9" type="Sprite3D" parent="Cake Trail"]
+[node name="Sprite3D9" type="Sprite3D" parent="Cake Trail" unique_id=877832552]
 transform = Transform3D(0.2, 1.7763568e-15, 3.8213586e-15, -7.642742e-16, 4.3711387e-10, 1, 0, -0.010000001, 4.3711395e-08, -0.8333359, 0, 1.4583337)
 texture = ExtResource("6_s8qc7")
 
-[node name="Sprite3D10" type="Sprite3D" parent="Cake Trail"]
+[node name="Sprite3D10" type="Sprite3D" parent="Cake Trail" unique_id=1789682681]
 transform = Transform3D(0.2, 1.7763568e-15, 3.8213586e-15, -7.642742e-16, 4.3711387e-10, 1, 0, -0.010000001, 4.3711395e-08, 0.83333117, 0, 1.2916671)
 texture = ExtResource("6_s8qc7")
 
-[node name="Sprite3D11" type="Sprite3D" parent="Cake Trail"]
+[node name="Sprite3D11" type="Sprite3D" parent="Cake Trail" unique_id=1430617332]
 transform = Transform3D(0.2, 1.7763568e-15, 3.8213586e-15, -7.642742e-16, 4.3711387e-10, 1, 0, -0.010000001, 4.3711395e-08, -1.7881393e-06, 0, 1.0416671)
 texture = ExtResource("6_s8qc7")
 
-[node name="Sprite3D12" type="Sprite3D" parent="Cake Trail"]
+[node name="Sprite3D12" type="Sprite3D" parent="Cake Trail" unique_id=1040258207]
 transform = Transform3D(0.2, 1.7763568e-15, 3.8213586e-15, -7.642742e-16, 4.3711387e-10, 1, 0, -0.010000001, 4.3711395e-08, 1.6666653, 0, 0.75000036)
 texture = ExtResource("6_s8qc7")
 
-[node name="Sprite3D13" type="Sprite3D" parent="Cake Trail"]
+[node name="Sprite3D13" type="Sprite3D" parent="Cake Trail" unique_id=1732635939]
 transform = Transform3D(0.2, 1.7763568e-15, 3.8213586e-15, -7.642742e-16, 4.3711387e-10, 1, 0, -0.010000001, 4.3711395e-08, -1.2516975e-06, 0, 0.62500036)
 texture = ExtResource("6_s8qc7")
 
-[node name="Sprite3D14" type="Sprite3D" parent="Cake Trail"]
+[node name="Sprite3D14" type="Sprite3D" parent="Cake Trail" unique_id=579245620]
 transform = Transform3D(0.2, 1.7763568e-15, 3.8213586e-15, -7.642742e-16, 4.3711387e-10, 1, 0, -0.010000001, 4.3711395e-08, 2.4999993, 0, 0.37500036)
 texture = ExtResource("6_s8qc7")
 
-[node name="Sprite3D15" type="Sprite3D" parent="Cake Trail"]
+[node name="Sprite3D15" type="Sprite3D" parent="Cake Trail" unique_id=1484688499]
 transform = Transform3D(0.2, 1.7763568e-15, 3.8213586e-15, -7.642742e-16, 4.3711387e-10, 1, 0, -0.010000001, 4.3711395e-08, 0.83333284, 0, 0.16666698)
 texture = ExtResource("6_s8qc7")
 
-[node name="Sprite3D16" type="Sprite3D" parent="Cake Trail"]
+[node name="Sprite3D16" type="Sprite3D" parent="Cake Trail" unique_id=676917296]
 transform = Transform3D(0.2, 1.7763568e-15, 3.8213586e-15, -7.642742e-16, 4.3711387e-10, 1, 0, -0.010000001, 4.3711395e-08, 3.3333342, 0, -0.08333278)
 texture = ExtResource("6_s8qc7")
 
-[node name="Shrooms" type="Node3D" parent="."]
+[node name="Shrooms" type="Node3D" parent="." unique_id=1442296896]
 
-[node name="Shroom" parent="Shrooms" instance=ExtResource("7_oxmj4")]
+[node name="Shroom" parent="Shrooms" unique_id=527469561 instance=ExtResource("7_oxmj4")]
 transform = Transform3D(0.07501814, 0, 0.12989333, 0, 0.14999999, 0, -0.12989333, 0, 0.07501814, 2.8317628, -0.0062179267, -9.73727)
 
-[node name="Shroom2" parent="Shrooms" instance=ExtResource("7_oxmj4")]
+[node name="Shroom2" parent="Shrooms" unique_id=1236091268 instance=ExtResource("7_oxmj4")]
 transform = Transform3D(-0.039654173, 0, 0.14466357, 0, 0.15, 0, -0.14466357, 0, -0.039654173, 2.1267548, -0.0062179267, -9.028201)
 
-[node name="Shroom3" parent="Shrooms" instance=ExtResource("7_oxmj4")]
+[node name="Shroom3" parent="Shrooms" unique_id=1657782922 instance=ExtResource("7_oxmj4")]
 transform = Transform3D(0.14874056, 0, -0.019397229, 0, 0.15, 0, 0.019397229, 0, 0.14874056, 8.607744, -0.0062179267, 4.2454453)
 
-[node name="Shroom4" parent="Shrooms" instance=ExtResource("7_oxmj4")]
+[node name="Shroom4" parent="Shrooms" unique_id=461883163 instance=ExtResource("7_oxmj4")]
 transform = Transform3D(0.11835138, 0, 0.09215723, 0, 0.14999999, 0, -0.09215723, 0, 0.11835138, 6.490247, -0.0062179267, 3.3009672)
 
-[node name="Shroom5" parent="Shrooms" instance=ExtResource("7_oxmj4")]
+[node name="Shroom5" parent="Shrooms" unique_id=1829163619 instance=ExtResource("7_oxmj4")]
 transform = Transform3D(-0.016941454, 0, 0.14904025, 0, 0.15, 0, -0.14904025, 0, -0.016941454, -9.192863, -0.0062179267, -2.3146555)
 
-[node name="Shroom6" parent="Shrooms" instance=ExtResource("7_oxmj4")]
+[node name="Shroom6" parent="Shrooms" unique_id=139349950 instance=ExtResource("7_oxmj4")]
 transform = Transform3D(-0.11791413, 0, 0.09271602, 0, 0.14999999, 0, -0.09271602, 0, -0.11791413, -8.133963, -0.0062179267, 1.2638633)
 
-[node name="Shroom7" parent="Shrooms" instance=ExtResource("7_oxmj4")]
+[node name="Shroom7" parent="Shrooms" unique_id=704370473 instance=ExtResource("7_oxmj4")]
 transform = Transform3D(-0.07432111, 0, -0.13029341, 0, 0.14999999, 0, 0.13029341, 0, -0.07432111, -5.2344418, -0.0062179267, 4.397662)
 
-[node name="Shroom8" parent="Shrooms" instance=ExtResource("7_oxmj4")]
+[node name="Shroom8" parent="Shrooms" unique_id=1533673726 instance=ExtResource("7_oxmj4")]
 transform = Transform3D(-0.07432111, 0, -0.13029341, 0, 0.14999999, 0, 0.13029341, 0, -0.07432111, -9.3707, -0.0062179267, 2.7618122)
 
-[node name="Shroom9" parent="Shrooms" instance=ExtResource("7_oxmj4")]
+[node name="Shroom9" parent="Shrooms" unique_id=312194301 instance=ExtResource("7_oxmj4")]
 transform = Transform3D(-0.123868525, 0, -0.21715568, 0, 0.25, 0, 0.21715568, 0, -0.123868525, -6.4538517, -0.02684477, 9.21015)
 
-[node name="Shroom10" parent="Shrooms" instance=ExtResource("7_oxmj4")]
+[node name="Shroom10" parent="Shrooms" unique_id=1553639508 instance=ExtResource("7_oxmj4")]
 transform = Transform3D(0.040947624, 0, -0.24662378, 0, 0.25, 0, 0.24662378, 0, 0.040947624, -4.5545115, -0.02684477, 2.5516644)
 
-[node name="Shroom11" parent="Shrooms" instance=ExtResource("7_oxmj4")]
+[node name="Shroom11" parent="Shrooms" unique_id=1193526461 instance=ExtResource("7_oxmj4")]
 transform = Transform3D(0.040947624, 0, -0.24662378, 0, 0.25, 0, 0.24662378, 0, 0.040947624, 6.461452, -0.02684477, 1.5106564)
 
-[node name="Shroom12" parent="Shrooms" instance=ExtResource("7_oxmj4")]
+[node name="Shroom12" parent="Shrooms" unique_id=1726567402 instance=ExtResource("7_oxmj4")]
 transform = Transform3D(0.057326656, 0, -0.3452733, 0, 0.35, 0, 0.3452733, 0, 0.057326656, -5.933499, -0.02684477, -6.857377)
 
-[node name="Terrain" type="Node3D" parent="."]
+[node name="Terrain" type="Node3D" parent="." unique_id=2118917025]
 
-[node name="Hill" type="CSGPolygon3D" parent="Terrain"]
+[node name="Hill" type="CSGPolygon3D" parent="Terrain" unique_id=1373429105]
 transform = Transform3D(1.3570511, 0.01116322, -0.94032353, -0.00078655675, 1.3267624, 0.17376946, 0.2860159, -0.049317252, 4.462003, 10.652149, -0.4494217, 0)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(0, 0, -0.30401802, 0.36161917, 1.0794668, 0.87659144, 1.450099, 0.016648531)
 
-[node name="Hill2" type="CSGPolygon3D" parent="Terrain"]
+[node name="Hill2" type="CSGPolygon3D" parent="Terrain" unique_id=793496960]
 transform = Transform3D(1.2016549, 0.037957925, 2.2745275, 0.027930275, 1.3218108, -0.420327, -0.6918374, 0.11929241, 3.9336658, 12.01178, -0.70067805, -2.6735153)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(1.0058393, -1.0089697, -0.42069244, -0.21931332, 1.0794668, 0.87659144, 2.8056135, 0.7403822)
 
-[node name="Hill3" type="CSGPolygon3D" parent="Terrain"]
+[node name="Hill3" type="CSGPolygon3D" parent="Terrain" unique_id=128565985]
 transform = Transform3D(1.2226603, 0.07075789, 2.09268, 0.028418506, 2.4640057, -0.38672203, -0.703931, 0.22237462, 3.6191707, 12.01178, -0.70067805, -7.3951216)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(2.3864222, -0.6585743, -3.2640882, -0.67269653, 1.0794668, 0.87659144, 1.797576, 0.5727652)
 
-[node name="Hill4" type="CSGPolygon3D" parent="Terrain"]
+[node name="Hill4" type="CSGPolygon3D" parent="Terrain" unique_id=2031647698]
 transform = Transform3D(1.2795944, -0.5388167, 0.41147292, 0.5736831, 1.2087181, 0.10165399, -0.15296935, 0.025851889, 3.82322, 10.837296, 0.016362451, 3.5189724)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(1.2667027, -1.6983086, -0.8435154, 0.2934159, 1.7734804, 0.91434693, 2.3412714, -0.9027325)
 
-[node name="Hill5" type="CSGPolygon3D" parent="Terrain"]
+[node name="Hill5" type="CSGPolygon3D" parent="Terrain" unique_id=1774641499]
 transform = Transform3D(-0.16758448, 0.46739268, -3.5697093, 0.84111816, 1.022773, 0.83736664, 1.1199596, -0.69819075, -1.1630347, 10.837296, 0.016362451, 3.5189724)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(0.9849434, -2.8468037, -3.1611724, 1.2830888, 1.212601, 0.019566298, 3.4142408, -1.3688309)
 
-[node name="Hill6" type="CSGPolygon3D" parent="Terrain"]
+[node name="Hill6" type="CSGPolygon3D" parent="Terrain" unique_id=449793634]
 transform = Transform3D(0.28141266, 0.15956508, -3.9960017, 0.7870723, 0.9118408, 0.92856884, 1.1982648, -0.6364108, 0.32853743, 10.655548, 0.95271057, 6.081566)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(3.8215237, -5.757983, -1.2369311, -1.1996982, 1.212601, 0.019566298, 3.4671369, -1.4814721)
 
-[node name="Terrain2" type="Node3D" parent="."]
+[node name="Terrain2" type="Node3D" parent="." unique_id=529645573]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="Hill" type="CSGPolygon3D" parent="Terrain2"]
+[node name="Hill" type="CSGPolygon3D" parent="Terrain2" unique_id=1526624181]
 transform = Transform3D(1.3570511, 0.01116322, -0.94032353, -0.00078655675, 1.3267624, 0.17376946, 0.2860159, -0.049317252, 4.462003, 10.652149, -0.4494217, 0)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(0, 0, -0.30401802, 0.36161917, 1.0794668, 0.87659144, 1.450099, 0.016648531)
 
-[node name="Hill2" type="CSGPolygon3D" parent="Terrain2"]
+[node name="Hill2" type="CSGPolygon3D" parent="Terrain2" unique_id=92023003]
 transform = Transform3D(1.2016549, 0.037957925, 2.2745275, 0.027930275, 1.3218108, -0.420327, -0.6918374, 0.11929241, 3.9336658, 12.01178, -0.70067805, -2.6735153)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(1.0058393, -1.0089697, -0.42069244, -0.21931332, 1.0794668, 0.87659144, 2.8056135, 0.7403822)
 
-[node name="Hill3" type="CSGPolygon3D" parent="Terrain2"]
+[node name="Hill3" type="CSGPolygon3D" parent="Terrain2" unique_id=1639700996]
 transform = Transform3D(1.2226603, 0.07075789, 2.09268, 0.028418506, 2.4640057, -0.38672203, -0.703931, 0.22237462, 3.6191707, 12.01178, -0.70067805, -7.3951216)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(2.3864222, -0.6585743, -3.2640882, -0.67269653, 1.0794668, 0.87659144, 1.797576, 0.5727652)
 
-[node name="Hill4" type="CSGPolygon3D" parent="Terrain2"]
+[node name="Hill4" type="CSGPolygon3D" parent="Terrain2" unique_id=1532375209]
 transform = Transform3D(1.2795944, -0.5388167, 0.41147292, 0.5736831, 1.2087181, 0.10165399, -0.15296935, 0.025851889, 3.82322, 10.837296, 0.016362451, 3.5189724)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(1.2667027, -1.6983086, -0.8435154, 0.2934159, 1.7734804, 0.91434693, 2.3412714, -0.9027325)
 
-[node name="Hill5" type="CSGPolygon3D" parent="Terrain2"]
+[node name="Hill5" type="CSGPolygon3D" parent="Terrain2" unique_id=1344986791]
 transform = Transform3D(-0.16758448, 0.46739268, -3.5697093, 0.84111816, 1.022773, 0.83736664, 1.1199596, -0.69819075, -1.1630347, 10.837296, 0.016362451, 3.5189724)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(0.9849434, -2.8468037, -3.1611724, 1.2830888, 1.212601, 0.019566298, 3.4142408, -1.3688309)
 
-[node name="Hill6" type="CSGPolygon3D" parent="Terrain2"]
+[node name="Hill6" type="CSGPolygon3D" parent="Terrain2" unique_id=1213838478]
 transform = Transform3D(0.28141266, 0.15956508, -3.9960017, 0.7870723, 0.9118408, 0.92856884, 1.1982648, -0.6364108, 0.32853743, 10.655548, 0.95271057, 6.081566)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(3.8215237, -5.757983, -1.2369311, -1.1996982, 1.212601, 0.019566298, 3.4671369, -1.4814721)
 
-[node name="Terrain3" type="Node3D" parent="."]
+[node name="Terrain3" type="Node3D" parent="." unique_id=986975102]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Hill" type="CSGPolygon3D" parent="Terrain3"]
+[node name="Hill" type="CSGPolygon3D" parent="Terrain3" unique_id=150372411]
 transform = Transform3D(1.3570511, 0.01116322, -0.94032353, -0.00078655675, 1.3267624, 0.17376946, 0.2860159, -0.049317252, 4.462003, 10.652149, -0.4494217, 0)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(0, 0, -0.30401802, 0.36161917, 1.0794668, 0.87659144, 1.450099, 0.016648531)
 
-[node name="Hill2" type="CSGPolygon3D" parent="Terrain3"]
+[node name="Hill2" type="CSGPolygon3D" parent="Terrain3" unique_id=416398083]
 transform = Transform3D(1.2016549, 0.037957925, 2.2745275, 0.027930275, 1.3218108, -0.420327, -0.6918374, 0.11929241, 3.9336658, 12.01178, -0.70067805, -2.6735153)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(1.0058393, -1.0089697, -0.42069244, -0.21931332, 1.0794668, 0.87659144, 2.8056135, 0.7403822)
 
-[node name="Hill3" type="CSGPolygon3D" parent="Terrain3"]
+[node name="Hill3" type="CSGPolygon3D" parent="Terrain3" unique_id=997597694]
 transform = Transform3D(0.84736216, 0.07501981, 3.4323127, 0.019695386, 2.6124187, -0.63428277, -0.4878579, 0.2357688, 5.9359894, 12.01178, -0.70067805, -7.3951216)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(2.3864222, -0.6585743, -3.2640882, -0.67269653, 1.0794668, 0.87659144, 4.47153, -0.15881926)
 
-[node name="Hill4" type="CSGPolygon3D" parent="Terrain3"]
+[node name="Hill4" type="CSGPolygon3D" parent="Terrain3" unique_id=520770532]
 transform = Transform3D(1.2795944, -0.5388167, 0.41147292, 0.5736831, 1.2087181, 0.10165399, -0.15296935, 0.025851889, 3.82322, 10.837296, 0.016362451, 3.5189724)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(1.2667027, -1.6983086, -0.8435154, 0.2934159, 1.7734804, 0.91434693, 2.3412714, -0.9027325)
 
-[node name="Hill5" type="CSGPolygon3D" parent="Terrain3"]
+[node name="Hill5" type="CSGPolygon3D" parent="Terrain3" unique_id=995679745]
 transform = Transform3D(-0.16758448, 0.46739268, -3.5697093, 0.84111816, 1.022773, 0.83736664, 1.1199596, -0.69819075, -1.1630347, 10.837296, 0.016362451, 3.5189724)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(0.9849434, -2.8468037, -3.1611724, 1.2830888, 1.212601, 0.019566298, 3.4142408, -1.3688309)
 
-[node name="Hill6" type="CSGPolygon3D" parent="Terrain3"]
+[node name="Hill6" type="CSGPolygon3D" parent="Terrain3" unique_id=94375270]
 transform = Transform3D(0.28141266, 0.15956508, -3.9960017, 0.7870723, 0.9118408, 0.92856884, 1.1982648, -0.6364108, 0.32853743, 10.655548, 0.95271057, 6.081566)
 material_override = SubResource("StandardMaterial3D_0d0em")
 use_collision = true
 polygon = PackedVector2Array(3.8215237, -5.757983, -1.2369311, -1.1996982, 1.212601, 0.019566298, 3.4671369, -1.4814721)
 
-[node name="Pause_Menu" type="Node2D" parent="."]
+[node name="Pause_Menu" type="Node2D" parent="." unique_id=1540629456]
 process_mode = 2
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="Pause_Menu"]
+[node name="ColorRect" type="ColorRect" parent="Pause_Menu" unique_id=1602763008]
 offset_left = 614.0
 offset_top = 299.0
 offset_right = 654.0
@@ -800,13 +800,13 @@ offset_bottom = 339.0
 scale = Vector2(17.332542, 11.039999)
 color = Color(0.37828982, 0.74889493, 0.67451066, 1)
 
-[node name="Button_manager" type="Control" parent="Pause_Menu/ColorRect"]
+[node name="Button_manager" type="Control" parent="Pause_Menu/ColorRect" unique_id=63135990]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.000004
 scale = Vector2(0.9957475, 1)
 
-[node name="Resume" type="Button" parent="Pause_Menu/ColorRect/Button_manager"]
+[node name="Resume" type="Button" parent="Pause_Menu/ColorRect/Button_manager" unique_id=1993321611]
 top_level = true
 layout_mode = 0
 offset_left = 782.00006
@@ -823,7 +823,7 @@ text = "Continue"
 flat = true
 alignment = 0
 
-[node name="Menu" type="Button" parent="Pause_Menu/ColorRect/Button_manager"]
+[node name="Menu" type="Button" parent="Pause_Menu/ColorRect/Button_manager" unique_id=1540936378]
 top_level = true
 layout_mode = 0
 offset_left = 782.0
@@ -840,7 +840,7 @@ text = "Main menu"
 flat = true
 alignment = 0
 
-[node name="Close" type="Button" parent="Pause_Menu/ColorRect/Button_manager"]
+[node name="Close" type="Button" parent="Pause_Menu/ColorRect/Button_manager" unique_id=1491516998]
 top_level = true
 layout_mode = 0
 offset_left = 782.0
@@ -858,92 +858,90 @@ text = "Exit
 flat = true
 alignment = 0
 
-[node name="BGM" type="Node3D" parent="."]
+[node name="BGM" type="Node3D" parent="." unique_id=1810105645]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BGM"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BGM" unique_id=673266224]
 stream = ExtResource("10_gif0i")
 volume_db = 0.5
 pitch_scale = 1.1
 autoplay = true
 
-[node name="BoundingBox" type="Node3D" parent="."]
+[node name="BoundingBox" type="Node3D" parent="." unique_id=308511892]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="BoundingBox"]
+[node name="CSGBox3D" type="CSGBox3D" parent="BoundingBox" unique_id=96406202]
 transform = Transform3D(1, 0, 0, 0, 15.710169, 0, 0, 0, 24.607435, -11.755325, 5.158972, 2.159196)
 transparency = 1.0
 cast_shadow = 0
 use_collision = true
 size = Vector3(1, 1, 1.3800201)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="BoundingBox"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="BoundingBox" unique_id=891408110]
 transform = Transform3D(1, 0, 0, 0, 15.710169, 0, 0, 0, 24.607435, 12.079184, 5.158972, 2.159196)
 transparency = 1.0
 cast_shadow = 0
 use_collision = true
 size = Vector3(1, 1, 1.3800201)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="BoundingBox"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="BoundingBox" unique_id=294429497]
 transform = Transform3D(-4.371139e-08, 0, 24.607435, 0, 15.710169, 0, -1, 0, -1.0756252e-06, 0.43173262, 5.158972, -12.03628)
 transparency = 1.0
 cast_shadow = 0
 use_collision = true
 size = Vector3(1, 1, 1.2170582)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="BoundingBox"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="BoundingBox" unique_id=1233020012]
 transform = Transform3D(-4.371139e-08, 0, 24.607435, 0, 15.710169, 0, -1, 0, -1.0756252e-06, 0.43173262, 8.608553, 17.6653)
 transparency = 1.0
 cast_shadow = 0
 use_collision = true
 size = Vector3(1, 0.5918236, 1.2170582)
 
-[node name="CinematicCamera" type="Camera3D" parent="."]
+[node name="CinematicCamera" type="Camera3D" parent="." unique_id=105923348]
 transform = Transform3D(0.2371603, 0, 0.97147053, 0, 1, 0, -0.97147053, 0, 0.2371603, 0, 1.9077368, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_gif0i")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1840570753]
+libraries/ = SubResource("AnimationLibrary_gif0i")
 
-[node name="AnimModels" type="Node" parent="."]
+[node name="AnimModels" type="Node" parent="." unique_id=728587119]
 
-[node name="ProtagFerret_Idle" type="CharacterBody3D" parent="AnimModels"]
+[node name="ProtagFerret_Idle" type="CharacterBody3D" parent="AnimModels" unique_id=341521508]
 transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 1.3246545, 0.008826137, -5.751459)
 
-[node name="ferret" parent="AnimModels/ProtagFerret_Idle" instance=ExtResource("10_5tceu")]
+[node name="ferret" parent="AnimModels/ProtagFerret_Idle" unique_id=1876135737 instance=ExtResource("10_5tceu")]
 
-[node name="ProtagFerret_Walk" type="CharacterBody3D" parent="AnimModels"]
+[node name="ProtagFerret_Walk" type="CharacterBody3D" parent="AnimModels" unique_id=1988525730]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.572152, -0.8896351, -5.210888)
 
-[node name="ferret" parent="AnimModels/ProtagFerret_Walk" instance=ExtResource("10_5tceu")]
+[node name="ferret" parent="AnimModels/ProtagFerret_Walk" unique_id=979003455 instance=ExtResource("10_5tceu")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
-[node name="ProtagFerret_Surprise" type="CharacterBody3D" parent="AnimModels"]
+[node name="ProtagFerret_Surprise" type="CharacterBody3D" parent="AnimModels" unique_id=503040098]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.551923, 0, 0)
 
-[node name="ferret" parent="AnimModels/ProtagFerret_Surprise" instance=ExtResource("10_5tceu")]
+[node name="ferret" parent="AnimModels/ProtagFerret_Surprise" unique_id=1955378094 instance=ExtResource("10_5tceu")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 7.576803, 0, -7.0585623)
 
-[node name="BanditFerret_Walk" type="CharacterBody3D" parent="AnimModels"]
+[node name="BanditFerret_Walk" type="CharacterBody3D" parent="AnimModels" unique_id=1168595572]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 29.48233)
 
-[node name="Bandito" parent="AnimModels/BanditFerret_Walk" instance=ExtResource("12_0d0em")]
+[node name="Bandito" parent="AnimModels/BanditFerret_Walk" unique_id=1700756418 instance=ExtResource("12_0d0em")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 8)
 script = null
 
-[node name="BanditFerret_Stealing" type="CharacterBody3D" parent="AnimModels"]
+[node name="BanditFerret_Stealing" type="CharacterBody3D" parent="AnimModels" unique_id=900636232]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5959859, 0, -16.023056)
 
-[node name="Bandito" parent="AnimModels/BanditFerret_Stealing" instance=ExtResource("12_0d0em")]
+[node name="Bandito" parent="AnimModels/BanditFerret_Stealing" unique_id=1339144355 instance=ExtResource("12_0d0em")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 8)
 script = null
 
-[node name="Cake" parent="." instance=ExtResource("12_1jeuq")]
+[node name="Cake" parent="." unique_id=535828043 instance=ExtResource("12_1jeuq")]
 transform = Transform3D(-0.031987783, 0, 0.26809847, 0, 0.27000004, 0, -0.26809847, 0, -0.031987783, 1.59553, 0.5138418, -7.186804)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cake"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Cake" unique_id=1331402479]
 transform = Transform3D(5.8823533, 0, 0, 0, 5.8823524, 0, 0, 0, 5.8823533, 8.1019745, -0.6754017, 45.731873)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cake/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cake/StaticBody3D" unique_id=80984150]
 transform = Transform3D(0.35, 0, 0, 0, 0.04, 0, 0, 0, 0.35, -1.3764338, 0.14592986, -7.77656)
 shape = SubResource("CylinderShape3D_1jeuq")
 
