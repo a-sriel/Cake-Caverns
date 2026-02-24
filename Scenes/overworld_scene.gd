@@ -8,7 +8,7 @@ func _ready() -> void:
 	$Player.hide()
 	$AnimationPlayer.play("IntroCutscene")
 	$"Cake Trail".hide()
-	
+
 	var anim1 : Animation = $AnimModels/ProtagFerret_Idle/ferret/AnimationPlayer.get_animation("Idle")
 	anim1.loop_mode = (Animation.LOOP_LINEAR)
 	$AnimModels/ProtagFerret_Idle/ferret/AnimationPlayer.play("Idle")
@@ -29,7 +29,7 @@ func _ready() -> void:
 	anim5.loop_mode = (Animation.LOOP_LINEAR)
 	$AnimModels/ProtagFerret_Surprise/ferret/AnimationPlayer.play("Celebrate")
 	
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	$Player.show()
 	$Player/Head/Camera3D.make_current()
 	
@@ -40,12 +40,13 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	$AnimModels/BanditFerret_Stealing.hide()
 	
 	$"Cake Trail".show()
-	
+
+
 func _on_enterance_trigger_body_entered(body: CharacterBody3D) -> void:
 	if body is CakeMaster:
 		get_tree().change_scene_to_file(cave_path)
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().paused = true
 		$Pause_Menu.show()
@@ -68,6 +69,11 @@ func _on_resume_pressed() -> void:
 func _on_menu_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://main_menu.tscn")
-	
+
+func _on_restart_pressed() -> void:
+	get_tree().change_scene_to_file("res://main_menu.tscn")
+	pass
+	get_tree().change_scene_to_file("res://Scenes/Overworld Scene.tscn")
+
 func _on_close_pressed() -> void:
 	get_tree().quit()

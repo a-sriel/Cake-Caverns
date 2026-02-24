@@ -2,12 +2,17 @@ extends RigidBody3D
 
 @export var amount : int = 25
 @export var in_boss_arena : bool = false
+@export var in_overworld : bool = false
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is CakeMaster:
 		body.refill_pies(amount)
-		amount *= .5
+		
+		if in_overworld:
+			return
+		
+		amount = floori(amount * .5)
 		self.scale *= .8
 		
 		if amount <= 0:

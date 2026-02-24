@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://b2ywxb0fgni0f" path="res://Assets/Audio/Music/AMB_Morning_Forest_and_River_Rich_Loop.wav" id="10_gif0i"]
 [ext_resource type="PackedScene" uid="uid://u8fusg8tlq4e" path="res://Scenes/Entities/Ferrets/Bandito.tscn" id="12_0d0em"]
 [ext_resource type="PackedScene" uid="uid://ljwpwedp2edm" path="res://Assets/Objects/Cake.fbx" id="12_1jeuq"]
+[ext_resource type="PackedScene" uid="uid://cfvls1g6ifaa2" path="res://Scenes/Pie/Pie_Refiller.tscn" id="14_jbyai"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x07gn"]
 sky_top_color = Color(1.3957917e-06, 0.4381807, 0.4483828, 1)
@@ -826,10 +827,10 @@ alignment = 0
 [node name="Menu" type="Button" parent="Pause_Menu/ColorRect/Button_manager" unique_id=1540936378]
 top_level = true
 layout_mode = 0
-offset_left = 782.0
-offset_top = 437.0
-offset_right = 878.0
-offset_bottom = 468.0
+offset_left = 783.99994
+offset_top = 419.0
+offset_right = 879.99994
+offset_bottom = 450.0
 scale = Vector2(3.8234158, 3.4783568)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 1, 1)
@@ -840,13 +841,30 @@ text = "Main menu"
 flat = true
 alignment = 0
 
+[node name="Restart" type="Button" parent="Pause_Menu/ColorRect/Button_manager" unique_id=599562417]
+top_level = true
+layout_mode = 0
+offset_left = 782.99994
+offset_top = 523.0
+offset_right = 878.99994
+offset_bottom = 554.0
+scale = Vector2(3.8234158, 3.4783568)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 1, 1)
+theme_override_colors/font_hover_color = Color(6.738305e-07, 0.5916015, 0.60168046, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_x07gn")
+text = "Restart"
+flat = true
+alignment = 0
+
 [node name="Close" type="Button" parent="Pause_Menu/ColorRect/Button_manager" unique_id=1491516998]
 top_level = true
 layout_mode = 0
-offset_left = 782.0
-offset_top = 550.0
-offset_right = 845.0
-offset_bottom = 581.0
+offset_left = 781.99994
+offset_top = 621.0
+offset_right = 844.99994
+offset_bottom = 652.0
 scale = Vector2(3.8234158, 3.4783568)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 1, 1)
@@ -945,8 +963,21 @@ transform = Transform3D(5.8823533, 0, 0, 0, 5.8823524, 0, 0, 0, 5.8823533, 8.101
 transform = Transform3D(0.35, 0, 0, 0, 0.04, 0, 0, 0, 0.35, -1.3764338, 0.14592986, -7.77656)
 shape = SubResource("CylinderShape3D_1jeuq")
 
+[node name="Pie Refillers" type="Node3D" parent="." unique_id=3265640]
+
+[node name="Pie Refiller" parent="Pie Refillers" unique_id=1743624505 instance=ExtResource("14_jbyai")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.96174777, 0, -4.0926037)
+amount = 10
+in_overworld = true
+
+[node name="Pie Refiller2" parent="Pie Refillers" unique_id=1057578964 instance=ExtResource("14_jbyai")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9825994, 0, -6.788534)
+amount = 10
+in_overworld = true
+
 [connection signal="body_entered" from="Cave/Enterance Trigger" to="." method="_on_enterance_trigger_body_entered"]
 [connection signal="pressed" from="Pause_Menu/ColorRect/Button_manager/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Pause_Menu/ColorRect/Button_manager/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Pause_Menu/ColorRect/Button_manager/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Pause_Menu/ColorRect/Button_manager/Close" to="." method="_on_close_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
