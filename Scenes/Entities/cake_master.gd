@@ -126,7 +126,13 @@ func take_shove_from(dir:Vector3, force:float) -> void:
 
 func update_pie_scale() -> void:
 	var pie_scale = pie_count * .04
-	pie.scale = Vector3(pie_scale, pie_scale, pie_scale)
+	
+	if is_zero_approx(pie_scale):
+		pie.visible = false
+	else:
+		pie.visible = true
+		pie.scale = Vector3(pie_scale, pie_scale, pie_scale)
+	
 	if pie_count > 0:
 		pie.visible = true
 
