@@ -4,7 +4,7 @@
 extends CharacterBody3D
 class_name CakeMaster
 
-@export var MAX_HEALTH : int = 10
+@export var MAX_HEALTH : int = 5
 @export var LOOK_SPEED : float = .0015
 @export var BASE_SPEED : float = 7
 @export var SPRINT_SPEED : float = 10
@@ -24,16 +24,36 @@ var mouse_captured : bool = false
 var look_rotation : Vector2
 var pie_count : int = STARTING_PIE_COUNT
 
+var flinch_duration: float = 0.1  # Duration of the flinch effect in seconds
+var flinch_amount: float = 0.2    # How much to flinch (in radians, ~11 degrees)
+var flinch_timer: float = 0.0
+var is_flinching: bool = false
+
 func _ready() -> void:
 	capture_mouse()
 	update_pie_scale()
 
 #TODO: THIS SUCKS
-func _process(_delta: float) -> void:
+var elapsed: float = 0
+func _process(delta: float) -> void:
 	if self.get_real_velocity():
 		anim.play("Armature|Walk")
 	else:
 		anim.play("Idle")
+	
+	if is_flinching:
+		flinch_timer += delta
+		if flinch_timer >= flinch_duration:
+			# Return to neutral rotation after flinch
+			head.rotation.z = lerp_angle(head.rotation.z, 0.0, delta*10)
+			if is_zero_approx(abs(rotation.z)):
+				is_flinching = false
+		else:
+			# Apply flinch: move toward flinch_amount
+			head.rotation.z = lerp_angle(head.rotation.z, flinch_amount, delta*10)
+	else:
+		# Optional: smooth return to neutral if not flinching
+		head.rotation.z = lerp_angle(head.rotation.z, 0.0, delta*10)
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -130,8 +150,13 @@ func take_shove_from(dir:Vector3, force:float) -> void:
 func take_damage(amount:int) -> void:
 	health -= amount
 	
-	if health <= 0:
-		kill_player()
+	if pie_count <= 0:
+		if health > 0:
+			flinch()
+		else:
+			kill_player()
+	elif health > MAX_HEALTH:
+		health = MAX_HEALTH
 
 func update_pie_scale() -> void:
 	var pie_scale = pie_count * .04
@@ -159,6 +184,17 @@ func kill_player() -> void:
 	head.basis = head.basis.rotated(Vector3.FORWARD, deg_to_rad(45))
 	
 	# Restart game
-	await get_tree().create_timer(3).timeout
 	release_mouse()
+	await get_tree().create_timer(3).timeout
 	get_tree().change_scene_to_file("res://main_menu.tscn")
+
+
+func _on_health_regen_timer_timeout() -> void:
+	take_damage(-1)
+
+func flinch() -> void:
+	is_flinching = true
+	flinch_timer = 0.0
+	flinch_amount = deg_to_rad(10 * MAX_HEALTH - health)
+
+	

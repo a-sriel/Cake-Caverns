@@ -98,4 +98,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.55, -0.275)
 [node name="Pie" parent="Hand" unique_id=870216734 instance=ExtResource("3_7aqde")]
 unique_name_in_owner = true
 
+[node name="HealthRegen Timer" type="Timer" parent="." unique_id=1410846434]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="HealthRegen Timer" to="." method="_on_health_regen_timer_timeout"]
+
 [editable path="ferret"]
