@@ -57,7 +57,7 @@ func _physics_process(_delta: float) -> void:
 	self.velocity = direction * WALK_SPEED
 	move_and_slide()
 	
-	if self.global_position != destination:
+	if not global_position.distance_to(destination) < 0.5:
 		self.look_at(destination)
 
 func take_damage() -> void:
