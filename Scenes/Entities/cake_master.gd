@@ -4,6 +4,7 @@
 extends CharacterBody3D
 class_name CakeMaster
 
+@export var MAX_HEALTH : int = 10
 @export var LOOK_SPEED : float = .0015
 @export var BASE_SPEED : float = 7
 @export var SPRINT_SPEED : float = 10
@@ -17,6 +18,7 @@ class_name CakeMaster
 @onready var anim: AnimationPlayer = %ferret.get_child(1)
 @onready var pie: Pie = %Pie
 
+var health : int = MAX_HEALTH
 var move_speed : float = 0
 var mouse_captured : bool = false
 var look_rotation : Vector2
@@ -26,7 +28,7 @@ func _ready() -> void:
 	capture_mouse()
 	update_pie_scale()
 
-#TODO: Optimize this
+#TODO: THIS SUCKS
 func _process(_delta: float) -> void:
 	if self.get_real_velocity():
 		anim.play("Armature|Walk")
@@ -123,6 +125,13 @@ func take_shove_from(dir:Vector3, force:float) -> void:
 	velocity += dir * force
 	velocity.y = 3
 	move_and_slide()
+	take_damage(1)
+
+func take_damage(amount:int) -> void:
+	health -= amount
+	
+	if health <= 0:
+		kill_player()
 
 func update_pie_scale() -> void:
 	var pie_scale = pie_count * .04
@@ -139,3 +148,17 @@ func update_pie_scale() -> void:
 func refill_pies(amount:int) -> void:
 	pie_count += amount
 	update_pie_scale()
+
+func kill_player() -> void:
+	# Disable self
+	pie.visible = false
+	self.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	# Pose
+	head.global_position.y = .2
+	head.basis = head.basis.rotated(Vector3.FORWARD, deg_to_rad(45))
+	
+	# Restart game
+	await get_tree().create_timer(3).timeout
+	release_mouse()
+	get_tree().change_scene_to_file("res://main_menu.tscn")
