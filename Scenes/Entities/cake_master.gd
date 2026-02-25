@@ -185,7 +185,7 @@ func kill_player() -> void:
 	
 	# Restart game
 	release_mouse()
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(5).timeout
 	get_tree().change_scene_to_file("res://main_menu.tscn")
 
 
