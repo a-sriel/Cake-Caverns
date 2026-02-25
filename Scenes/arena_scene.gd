@@ -30,6 +30,13 @@ func _on_close_pressed() -> void:
 
 
 func _on_bandito_boss_took_damage() -> void:
+	# 50% chance no enemies will spawn
+	if randi_range(0, 1) == 0:
+		return
+	
+	# timer so player can see mask fall off of bandito
+	await get_tree().create_timer(2).timeout
+	
 	var rand_i : int = randi_range(1, 3)
 	var rand_ferret : Node
 	

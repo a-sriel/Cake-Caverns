@@ -7,4 +7,5 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is CakeMaster:
 		# End the game here
 		print("You win!!")
+		body.release_mouse()
 		get_tree().change_scene_to_file("res://Scenes/EndingScene.tscn")

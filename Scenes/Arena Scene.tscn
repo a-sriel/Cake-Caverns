@@ -67,11 +67,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.7)
 navigation_mesh = SubResource("NavigationMesh_32763")
 
 [node name="Floor" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1183418036]
-transform = Transform3D(0.99999934, -0.0010925424, 0.00025225768, 0.0010923217, 0.99999905, 0.00086113415, -0.00025321142, -0.00086085417, 0.9999996, -0.29356426, 0.0007750212, 10.721366)
+transform = Transform3D(0.99999934, -0.0010925424, 0.00025225768, 0.0010923217, 0.99999905, 0.00086113415, -0.00025321142, -0.00086085417, 0.9999996, -1.4271835, -4.2898493, 8.33682)
 material_override = SubResource("StandardMaterial3D_twcri")
 use_collision = true
 collision_mask = 0
-size = Vector3(26.2, 0.1, 20.2)
+size = Vector3(38.47877, 8.674658, 29.93916)
 
 [node name="Outer Walls" type="CSGCombiner3D" parent="NavigationRegion3D" unique_id=653938145]
 transform = Transform3D(1, 0, 0, 0, 1.3, 0, 0, 0, 1, 0, 0, 0)
@@ -118,32 +118,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.099999, 0, 13.5)
 
 [node name="Pie Refiller" parent="Pie Refillers" unique_id=1962997894 instance=ExtResource("10_32763")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8999996, 0, 1.1999998)
+collision_mask = 1
 mass = 20.0
-in_boss_arena = true
+amount = 15
+in_overworld = true
 
 [node name="Pie Refiller2" parent="Pie Refillers" unique_id=2005388695 instance=ExtResource("10_32763")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 3)
+collision_mask = 1
 mass = 20.0
-in_boss_arena = true
+amount = 15
+in_overworld = true
 
 [node name="Pie Refiller3" parent="Pie Refillers" unique_id=2003442863 instance=ExtResource("10_32763")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1, 0, -2.8000002)
+collision_mask = 1
 mass = 20.0
-in_boss_arena = true
+amount = 15
+in_overworld = true
 
 [node name="Pie Refiller4" parent="Pie Refillers" unique_id=1142020362 instance=ExtResource("10_32763")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.400002, 0, -8.6)
+collision_mask = 1
 mass = 20.0
-in_boss_arena = true
+amount = 15
+in_overworld = true
 
 [node name="Pie Refiller5" parent="Pie Refillers" unique_id=387319742 instance=ExtResource("10_32763")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6999998, 0, -8.6)
+collision_mask = 1
 mass = 20.0
-in_boss_arena = true
+amount = 15
+in_overworld = true
 
 [node name="Pie Refiller6" parent="Pie Refillers" unique_id=963778573 instance=ExtResource("10_32763")]
+collision_mask = 1
 mass = 20.0
-in_boss_arena = true
+amount = 15
+in_overworld = true
 
 [node name="Bandito" parent="." unique_id=2047363333 instance=ExtResource("10_hw1a1")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 8)

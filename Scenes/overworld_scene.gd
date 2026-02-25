@@ -64,7 +64,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 func _on_resume_pressed() -> void:
 	$Pause_Menu.hide()
 	get_tree().paused = false
-	$Player.capture_mouse()
+	if $Player.has_method("capture_mouse"):
+		$Player.capture_mouse()
 	
 func _on_menu_pressed() -> void:
 	get_tree().paused = false

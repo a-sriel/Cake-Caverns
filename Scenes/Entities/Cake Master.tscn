@@ -10,6 +10,7 @@ height = 1.625
 
 [node name="Cake Master" type="CharacterBody3D" unique_id=933085269]
 collision_layer = 8
+safe_margin = 0.01
 script = ExtResource("1_fadgh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=71657020]
