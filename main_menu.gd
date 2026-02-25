@@ -2,6 +2,7 @@ extends Node2D
 
 var button_type = null
 
+
 func _on_start_pressed() -> void:
 	button_type = "start"
 	$fade_transition.show()
