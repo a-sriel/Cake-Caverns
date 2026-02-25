@@ -17,12 +17,15 @@ class_name CakeMaster
 @onready var ferret: Node3D = %ferret
 @onready var anim: AnimationPlayer = %ferret.get_child(1)
 @onready var pie: Pie = %Pie
+@onready var auto_throw_timer: Timer = %"AutoThrow Timer"
 
 var health : int = MAX_HEALTH
 var move_speed : float = 0
 var mouse_captured : bool = false
 var look_rotation : Vector2
 var pie_count : int = STARTING_PIE_COUNT
+var auto_throw_ready: bool = true
+var action_fire_hold_duration: float = 0
 
 var flinch_duration: float = 0.1  # Duration of the flinch effect in seconds
 var flinch_amount: float = 0.2    # How much to flinch (in radians, ~11 degrees)
@@ -36,11 +39,13 @@ func _ready() -> void:
 #TODO: THIS SUCKS
 var elapsed: float = 0
 func _process(delta: float) -> void:
+	# MOVEMENT ANIMS
 	if self.get_real_velocity():
 		anim.play("Armature|Walk")
 	else:
 		anim.play("Idle")
 	
+	# FLINCHING
 	if is_flinching:
 		flinch_timer += delta
 		if flinch_timer >= flinch_duration:
@@ -52,8 +57,22 @@ func _process(delta: float) -> void:
 			# Apply flinch: move toward flinch_amount
 			head.rotation.z = lerp_angle(head.rotation.z, flinch_amount, delta*10)
 	else:
-		# Optional: smooth return to neutral if not flinching
 		head.rotation.z = lerp_angle(head.rotation.z, 0.0, delta*10)
+	
+	# AUTO THROW
+	if Input.is_action_pressed("action_fire"):
+		action_fire_hold_duration += delta
+		
+		if action_fire_hold_duration >= .5 and auto_throw_ready:
+			auto_throw_ready = false
+			auto_throw_timer.start()
+			
+			if pie_count > 0:
+				throw_pie()
+			else:
+				pie.visible = false
+	if Input.is_action_just_released("action_fire"):
+		action_fire_hold_duration = 0
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -68,15 +87,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if Input.is_action_just_pressed("action_fire"):
 		if pie_count > 0:
-			pie.visible = true
-			pie_count -= 1
 			throw_pie()
-			update_pie_scale()
 		else:
-			#signal that they are out of pies
-			pass
-		
-		if pie_count <= 0:
 			pie.visible = false
 
 func _physics_process(delta: float) -> void:
@@ -137,9 +149,14 @@ func release_mouse():
 	mouse_captured = false
 
 func throw_pie() -> void:
+	pie.visible = true
+	pie_count -= 1
+	
 	var forward_dir := -cam.get_global_transform().basis.z
 	forward_dir.y += .3
 	pie.throw(forward_dir, THROW_FORCE)
+	
+	update_pie_scale()
 
 func take_shove_from(dir:Vector3, force:float) -> void:
 	velocity += dir * force
@@ -197,4 +214,6 @@ func flinch() -> void:
 	flinch_timer = 0.0
 	flinch_amount = deg_to_rad(10 * MAX_HEALTH - health)
 
-	
+
+func _on_auto_throw_timer_timeout() -> void:
+	auto_throw_ready = true

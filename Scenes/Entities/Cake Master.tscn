@@ -102,6 +102,12 @@ unique_name_in_owner = true
 wait_time = 3.0
 autostart = true
 
+[node name="AutoThrow Timer" type="Timer" parent="." unique_id=1038678801]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
 [connection signal="timeout" from="HealthRegen Timer" to="." method="_on_health_regen_timer_timeout"]
+[connection signal="timeout" from="AutoThrow Timer" to="." method="_on_auto_throw_timer_timeout"]
 
 [editable path="ferret"]
